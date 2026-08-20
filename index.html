@@ -230,11 +230,8 @@
         </div>
         <div class="compact-row">
           <span class="name">📍 Sendero</span>
-          <span class="details">Plaza Sendero · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Plaza%20Sendero%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>10:00 AM–7:00 PM · <span class="pending" data-es="Falta teléfono" data-en="Phone missing">Falta teléfono</span></span>
+          <span class="details">Plaza Sendero · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Plaza%20Sendero%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>10:00 AM–7:00 PM · 656 209 0783</span>
         </div>
-      </div>
-      <div class="missing-note" data-es="⚠️ Todavía necesito el teléfono de Sendero. Mándamelo cuando puedas y lo agrego." data-en="⚠️ Still need Sendero's phone number. Send it whenever you can and I'll add it.">
-        ⚠️ Todavía necesito el teléfono de Sendero. Mándamelo cuando puedas y lo agrego.
       </div>
       <div class="subhead" data-es="Servicios" data-en="Services">Servicios</div>
       <div class="highlight-grid">
@@ -323,7 +320,6 @@
       <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
       <div class="slide3-cta">
         <a href="tel:6564196281" class="btn btn-primary" data-es="Llamar 656 419 6281" data-en="Call 656 419 6281">Llamar 656 419 6281</a>
-        <!-- WhatsApp number internally: Guadalupe's reception phone -->
         <a href="https://wa.me/526564195816" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; color:#fff;" data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</a>
         <a href="#sucursales" class="btn btn-ghost" data-es="Agendar cita" data-en="Book appointment">Agendar cita</a>
       </div>
@@ -385,9 +381,7 @@
       Correo: document.getElementById('email').value,
       "Sucursal / Recogida": location,
       Servicio: document.getElementById('service').value,
-      Seguro: document.getElementById('insurance').value || "No especificado",
-      "Fecha preferida": document.getElementById('date').value || "No especificada",
-      Mensaje: document.getElementById('message').value || "—"
+      "Fecha preferida": document.getElementById('date').value || "No especificada"
     };
     submitBtn.disabled = true;
     statusEl.className = 'sending';
@@ -412,8 +406,7 @@
   });
   // ---- Insurance card upload ----
   // Insurance card uploads route here (not shown anywhere in the UI).
-  // ⚠️ TEMPORAL — probando el mecanismo de FormSubmit. Regresar a ingresos2@opticas20-20.com antes de producción.
-  const INSURANCE_UPLOAD_EMAIL = "dentaline2020@hotmail.com";
+  const INSURANCE_UPLOAD_EMAIL = "ingresos2@opticas20-20.com";
   const insForm = document.getElementById('insuranceForm');
   const insStatusEl = document.getElementById('insFormStatus');
   const insSubmitBtn = document.getElementById('insSubmitBtn');
