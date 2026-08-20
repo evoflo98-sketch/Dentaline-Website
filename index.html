@@ -21,7 +21,7 @@
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Dentaline Dentista",
-  "telephone": "+56564196281",
+  "telephone": "+526564196281",
   "image": "images/office-photo.webp",
   "areaServed": ["Ciudad Juárez, Chihuahua", "El Paso, TX"],
   "department": [
@@ -286,16 +286,17 @@
               <label data-es="Foto de tu tarjeta de seguro" data-en="Photo of your insurance card">Foto de tu tarjeta de seguro</label>
               <input type="file" id="ins-file" name="attachment" accept="image/*" multiple required>
             </div>
+            <input type="text" id="ins-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <button type="submit" class="btn btn-primary" id="insSubmitBtn" data-es="Enviar" data-en="Send">Enviar</button>
             <div id="insFormStatus" role="status"></div>
           </form>
         </div>
       </div>
-      <div class="subhead" data-es="Agendar" data-en="Book">Agendar</div>
+      <div class="subhead" id="agendar" data-es="Agendar" data-en="Book">Agendar</div>
       <form id="bookingForm">
         <div class="field-row">
           <div class="field"><label data-es="Nombre completo" data-en="Full name">Nombre completo</label><input type="text" id="name" name="name" required></div>
-          <div class="field"><label data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" id="phone" name="phone" required></div>
+          <div class="field"><label data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s()]{7,20}" title="Ingresa un teléfono válido (7 a 20 dígitos)"></div>
         </div>
         <div class="field"><label data-es="Correo" data-en="Email">Correo</label><input type="email" id="email" name="email" required></div>
         <div class="field-row">
@@ -324,6 +325,7 @@
           </div>
         </div>
         <div class="field"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="date" name="date"></div>
+        <input type="text" id="booking-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn btn-green" id="submitBtn" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
         <div id="formStatus" role="status"></div>
       </form>
@@ -412,7 +414,8 @@
       Correo: document.getElementById('email').value,
       "Sucursal / Recogida": location,
       Servicio: document.getElementById('service').value,
-      "Fecha preferida": document.getElementById('date').value || "No especificada"
+      "Fecha preferida": document.getElementById('date').value || "No especificada",
+      _honey: document.getElementById('booking-honey').value
     };
     submitBtn.disabled = true;
     statusEl.className = 'sending';
@@ -447,6 +450,7 @@
     formData.append('_subject', 'Nueva verificación de seguro — foto de tarjeta');
     formData.append('Nombre', document.getElementById('ins-name').value);
     formData.append('Contacto', document.getElementById('ins-contact').value);
+    formData.append('_honey', document.getElementById('ins-honey').value);
     const files = document.getElementById('ins-file').files;
     for (let i = 0; i < files.length; i++) {
       formData.append('attachment', files[i]);
