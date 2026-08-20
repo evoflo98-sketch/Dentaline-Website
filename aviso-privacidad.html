@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+  DRAFT — pending legal review. Written as a starting point covering the elements
+  Mexico's LFPDPPP (Ley Federal de Protección de Datos Personales en Posesión de los
+  Particulares) requires for an "aviso de privacidad integral" — this is not legal
+  advice, and should be checked by someone qualified before real patients rely on it.
+  Placeholders to confirm before publishing: contact email, and the legal/registered
+  name of the business if it differs from "Dentaline Dentista".
+-->
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aviso de Privacidad — Dentaline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-700:#1585BD; --blue-600:#1C9AD6; --blue-500:#29ABE2; --blue-100:#E4F5FC;
+    --green-600:#7AB92E; --green-500:#8DC63F; --green-100:#EEF8DF;
+    --ink:#2E2A5E; --paper:#F8FBFD; --white:#FFFFFF; --muted:#5C5A80; --line:#DCEAF5; --radius:18px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{ font-family:'Inter', sans-serif; color:var(--ink); background:var(--paper); line-height:1.65; -webkit-font-smoothing:antialiased; }
+  h1,h2{ font-family:'Baloo 2', sans-serif; font-weight:700; letter-spacing:-0.01em; color:var(--ink); }
+  a{color:var(--blue-600); text-decoration:underline; text-underline-offset:2px;}
+  a:hover{color:var(--blue-700);}
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--blue-600); outline-offset:3px; }
+  img{max-width:100%; display:block;}
+  header{ position:sticky; top:0; z-index:50; background:rgba(248,251,253,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .nav{ max-width:820px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:16px; }
+  .nav-logo img{height:48px; width:auto; display:block;}
+  .lang-toggle{ margin-left:auto; display:flex; align-items:center; gap:2px; background:var(--blue-100); border-radius:100px; padding:3px; border:1px solid var(--line); }
+  .lang-toggle button{ border:none; background:transparent; padding:7px 14px; border-radius:100px; font-size:13px; font-weight:700; cursor:pointer; color:var(--blue-700); font-family:'Inter', sans-serif; }
+  .lang-toggle button.active{background:var(--blue-500); color:#fff;}
+  main{ max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:var(--blue-700); background:var(--blue-100); padding:7px 14px; border-radius:100px; margin-bottom:18px; border:1px solid var(--line); }
+  h1{ font-size:clamp(26px,4vw,34px); margin-bottom:8px; }
+  .updated{ color:var(--muted); font-size:13.5px; margin-bottom:36px; }
+  h2{ font-size:19px; margin:34px 0 10px; padding-top:6px; }
+  p{ margin-bottom:14px; font-size:15px; }
+  ul{ margin:0 0 14px 22px; font-size:15px; }
+  li{ margin-bottom:6px; }
+  .callout{ background:var(--blue-100); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin:20px 0; font-size:14.5px; color:var(--blue-700); }
+  .contact-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; margin:16px 0; }
+  .contact-card p{ margin-bottom:6px; }
+  footer{ border-top:1px solid var(--line); padding:28px 24px; text-align:center; font-size:13px; color:var(--muted); }
+  footer a{ font-weight:600; }
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a href="index.html" class="nav-logo"><img src="images/logo.webp" alt="Dentaline"></a>
+    <div class="lang-toggle">
+      <button data-lang-btn="es" class="active">ES</button>
+      <button data-lang-btn="en">EN</button>
+    </div>
+  </div>
+</header>
+<main>
+  <span class="eyebrow" data-es="Protección de datos" data-en="Data protection">Protección de datos</span>
+  <h1 data-es="Aviso de Privacidad" data-en="Privacy Notice">Aviso de Privacidad</h1>
+  <p class="updated" data-es="Última actualización: 20 de agosto de 2026" data-en="Last updated: August 20, 2026">Última actualización: 20 de agosto de 2026</p>
+
+  <p data-es="Dentaline Dentista (&quot;Dentaline&quot;, &quot;nosotros&quot;) es responsable del tratamiento de sus datos personales. Este aviso explica qué información recabamos, para qué la usamos y cómo puede ejercer sus derechos, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares." data-en="Dentaline Dentista (&quot;Dentaline&quot;, &quot;we&quot;) is responsible for the personal data we collect from you. This notice explains what information we collect, what we use it for, and how you can exercise your rights, in accordance with Mexico's Federal Law on Protection of Personal Data Held by Private Parties.">Dentaline Dentista ("Dentaline", "nosotros") es responsable del tratamiento de sus datos personales. Este aviso explica qué información recabamos, para qué la usamos y cómo puede ejercer sus derechos, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+
+  <div class="contact-card">
+    <p><strong data-es="Domicilios de nuestros consultorios (Ciudad Juárez, Chihuahua):" data-en="Our clinic addresses (Ciudad Juárez, Chihuahua):">Domicilios de nuestros consultorios (Ciudad Juárez, Chihuahua):</strong></p>
+    <p>Aztecas — Av. de los Aztecas 9109-1, Ciudad Moderna<br>
+    Ejército — Av. Ejército Nacional 6220<br>
+    Pasaje — C. 16 de Septiembre 455, Centro<br>
+    Torres — Av. de las Torres #2111, Plaza Sendero Las Torres<br>
+    Libramiento — Av. Henequén, Mi Plaza Libramiento<br>
+    Rio Grande — Rio Grande Mall<br>
+    Sendero — Plaza Sendero</p>
+    <p style="margin-top:10px;" data-es="Teléfono: 656 419 6281 · Correo: privacidad@dentalinedentista.com" data-en="Phone: 656 419 6281 · Email: privacidad@dentalinedentista.com">Teléfono: 656 419 6281 · Correo: privacidad@dentalinedentista.com</p>
+  </div>
+
+  <h2 data-es="1. Datos personales que recabamos" data-en="1. Personal data we collect">1. Datos personales que recabamos</h2>
+  <ul>
+    <li data-es="Datos de identificación y contacto: nombre completo, teléfono y correo electrónico." data-en="Identification and contact data: full name, phone number, and email address.">Datos de identificación y contacto: nombre completo, teléfono y correo electrónico.</li>
+    <li data-es="Datos de su cita: sucursal elegida, servicio de interés y fecha preferida." data-en="Appointment data: the branch you chose, the service you're interested in, and your preferred date.">Datos de su cita: sucursal elegida, servicio de interés y fecha preferida.</li>
+    <li data-es="Datos sensibles relacionados con su salud: la fotografía de su tarjeta de seguro dental y, en su caso, información sobre su historial o tratamiento necesaria para atenderle." data-en="Sensitive health-related data: a photo of your dental insurance card and, where applicable, information about your dental history or treatment needed to care for you.">Datos sensibles relacionados con su salud: la fotografía de su tarjeta de seguro dental y, en su caso, información sobre su historial o tratamiento necesaria para atenderle.</li>
+  </ul>
+  <div class="callout" data-es="⚠️ Aviso sobre datos sensibles: la información relacionada con su salud (por ejemplo, su tarjeta de seguro dental) es considerada un dato personal sensible por la Ley. Al proporcionarnos esta información de forma voluntaria — por ejemplo, al subir la foto de su tarjeta en nuestro sitio — usted otorga su consentimiento expreso para su tratamiento conforme a este aviso." data-en="⚠️ Notice about sensitive data: information related to your health (for example, your dental insurance card) is considered sensitive personal data under the Law. By voluntarily providing this information — for example, by uploading your card photo on our site — you give your express consent for it to be processed as described in this notice.">⚠️ Aviso sobre datos sensibles: la información relacionada con su salud (por ejemplo, su tarjeta de seguro dental) es considerada un dato personal sensible por la Ley. Al proporcionarnos esta información de forma voluntaria — por ejemplo, al subir la foto de su tarjeta en nuestro sitio — usted otorga su consentimiento expreso para su tratamiento conforme a este aviso.</div>
+
+  <h2 data-es="2. Para qué usamos su información" data-en="2. What we use your information for">2. Para qué usamos su información</h2>
+  <p data-es="Finalidades necesarias para el servicio que solicita:" data-en="Purposes necessary for the service you're requesting:">Finalidades necesarias para el servicio que solicita:</p>
+  <ul>
+    <li data-es="Agendar y confirmar su cita." data-en="Scheduling and confirming your appointment.">Agendar y confirmar su cita.</li>
+    <li data-es="Verificar su cobertura de seguro dental antes de su visita." data-en="Verifying your dental insurance coverage before your visit.">Verificar su cobertura de seguro dental antes de su visita.</li>
+    <li data-es="Brindarle el servicio dental solicitado y darle seguimiento." data-en="Providing the dental service you requested and following up with you.">Brindarle el servicio dental solicitado y darle seguimiento.</li>
+  </ul>
+  <p data-es="Finalidades adicionales (requieren su consentimiento — puede negarse sin que esto afecte su cita):" data-en="Additional purposes (require your consent — you can opt out without affecting your appointment):">Finalidades adicionales (requieren su consentimiento — puede negarse sin que esto afecte su cita):</p>
+  <ul>
+    <li data-es="Enviarle recordatorios de citas futuras y promociones de nuestros servicios." data-en="Sending you future appointment reminders and promotions about our services.">Enviarle recordatorios de citas futuras y promociones de nuestros servicios.</li>
+  </ul>
+
+  <h2 data-es="3. Con quién compartimos su información" data-en="3. Who we share your information with">3. Con quién compartimos su información</h2>
+  <p data-es="No vendemos sus datos personales. La foto de su tarjeta de seguro se usa únicamente para verificar su cobertura con la aseguradora correspondiente cuando usted lo solicita. No compartimos su información con terceros para fines distintos a los señalados en este aviso." data-en="We do not sell your personal data. Your insurance card photo is used only to verify your coverage with your own insurance provider when you request it. We do not share your information with third parties for purposes other than those described in this notice.">No vendemos sus datos personales. La foto de su tarjeta de seguro se usa únicamente para verificar su cobertura con la aseguradora correspondiente cuando usted lo solicita. No compartimos su información con terceros para fines distintos a los señalados en este aviso.</p>
+
+  <h2 data-es="4. Cómo limitar el uso de su información" data-en="4. How to limit the use of your information">4. Cómo limitar el uso de su información</h2>
+  <p data-es="Si no desea que sus datos se usen para recordatorios o promociones, escríbanos a privacidad@dentalinedentista.com o llámenos al 656 419 6281 indicando su nombre y solicitud." data-en="If you don't want your data used for reminders or promotions, write to us at privacidad@dentalinedentista.com or call 656 419 6281 with your name and request.">Si no desea que sus datos se usen para recordatorios o promociones, escríbanos a privacidad@dentalinedentista.com o llámenos al 656 419 6281 indicando su nombre y solicitud.</p>
+
+  <h2 data-es="5. Sus derechos ARCO" data-en="5. Your ARCO rights">5. Sus derechos ARCO</h2>
+  <p data-es="Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse (derechos ARCO) al tratamiento de sus datos personales, así como a revocar su consentimiento en cualquier momento. Para ejercerlos, envíe su solicitud a privacidad@dentalinedentista.com indicando su nombre completo y el derecho que desea ejercer. Le responderemos en un plazo máximo de 20 días hábiles." data-en="You have the right to Access, Rectify, Cancel, or Object (ARCO rights) to the processing of your personal data, and to revoke your consent at any time. To exercise these rights, send your request to privacidad@dentalinedentista.com with your full name and the right you wish to exercise. We will respond within 20 business days.">Usted tiene derecho a Acceder, Rectificar, Cancelar u Oponerse (derechos ARCO) al tratamiento de sus datos personales, así como a revocar su consentimiento en cualquier momento. Para ejercerlos, envíe su solicitud a privacidad@dentalinedentista.com indicando su nombre completo y el derecho que desea ejercer. Le responderemos en un plazo máximo de 20 días hábiles.</p>
+
+  <h2 data-es="6. Cookies y tecnologías de rastreo" data-en="6. Cookies and tracking technologies">6. Cookies y tecnologías de rastreo</h2>
+  <p data-es="Este sitio no utiliza cookies de rastreo ni analiza su comportamiento de navegación. Si esto cambia en el futuro, actualizaremos este aviso." data-en="This site does not use tracking cookies or analyze your browsing behavior. If this changes in the future, we will update this notice.">Este sitio no utiliza cookies de rastreo ni analiza su comportamiento de navegación. Si esto cambia en el futuro, actualizaremos este aviso.</p>
+
+  <h2 data-es="7. Cambios a este aviso" data-en="7. Changes to this notice">7. Cambios a este aviso</h2>
+  <p data-es="Podemos actualizar este aviso de privacidad. Cualquier cambio será publicado en esta misma página, junto con la fecha de la última actualización." data-en="We may update this privacy notice. Any changes will be published on this same page, along with the date of the last update.">Podemos actualizar este aviso de privacidad. Cualquier cambio será publicado en esta misma página, junto con la fecha de la última actualización.</p>
+</main>
+<footer>
+  <span data-es="© 2026 Dentaline" data-en="© 2026 Dentaline">© 2026 Dentaline</span>
+  &nbsp;·&nbsp;
+  <a href="index.html" data-es="Volver al inicio" data-en="Back to home">Volver al inicio</a>
+</footer>
+<script>
+  const langButtons = document.querySelectorAll('[data-lang-btn]');
+  function setLang(lang){
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const text = el.getAttribute(lang === 'en' ? 'data-en' : 'data-es');
+      if (text !== null) el.textContent = text;
+    });
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.langBtn === lang));
+    document.documentElement.lang = lang === 'en' ? 'en' : 'es-MX';
+  }
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langBtn)));
+</script>
+</body>
+</html>
