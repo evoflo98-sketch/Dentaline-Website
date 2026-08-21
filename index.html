@@ -31,7 +31,7 @@
   "image": "https://dentalinemx.com/images/office-photo.webp",
   "areaServed": ["Ciudad Juárez, Chihuahua", "El Paso, TX"],
   "department": [
-    { "@type": "Dentist", "name": "Dentaline Aztecas", "address": { "@type": "PostalAddress", "streetAddress": "Av. de los Aztecas 9109-1, Ciudad Moderna", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "addressCountry": "MX" }, "telephone": "+526566339976" },
+    { "@type": "Dentist", "name": "Dentaline Aztecas", "address": { "@type": "PostalAddress", "streetAddress": "Calle Pino Suárez 3516, Santa María", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "postalCode": "32670", "addressCountry": "MX" }, "telephone": "+526566339976" },
     { "@type": "Dentist", "name": "Dentaline Ejército", "address": { "@type": "PostalAddress", "streetAddress": "Av. Ejército Nacional 6220", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "addressCountry": "MX" }, "telephone": "+526566231202" },
     { "@type": "Dentist", "name": "Dentaline Pasaje", "address": { "@type": "PostalAddress", "streetAddress": "C. 16 de Septiembre 455, Centro", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "addressCountry": "MX" }, "telephone": "+526562517235" },
     { "@type": "Dentist", "name": "Dentaline Torres", "address": { "@type": "PostalAddress", "streetAddress": "Av. de las Torres #2111, Plaza Sendero Las Torres", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "addressCountry": "MX" }, "telephone": "+526566812775" },
@@ -158,6 +158,13 @@
   .field textarea{resize:vertical; min-height:70px;}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media(max-width:520px){ .field-row{grid-template-columns:1fr;} }
+  .phone-row{display:flex; gap:8px;}
+  .phone-row select{flex:0 0 132px; min-width:0;}
+  .phone-row input{flex:1; min-width:0;}
+  .email-row{display:flex; align-items:center; gap:6px;}
+  .email-row input{flex:1; min-width:0;}
+  .email-row select{flex:0 0 140px; min-width:0;}
+  .email-at{font-weight:700; color:var(--muted);}
   .form-status{font-size:14px; padding:12px 14px; border-radius:10px; display:none;}
   .form-status.ok{display:block; background:var(--green-100); color:#3d5417; border:1px solid var(--green-500);}
   .form-status.err{display:block; background:var(--red-100); color:#8A2C2C; border:1px solid #E39A9A;}
@@ -238,7 +245,7 @@
         </div>
         <div class="compact-row">
           <span class="name">📍 Aztecas<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
-          <span class="details">Av. de los Aztecas 9109-1, Ciudad Moderna · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Av.%20de%20los%20Aztecas%209109-1%2C%20Ciudad%20Moderna%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–6:00 PM · 656 633 9976</span>
+          <span class="details">Calle Pino Suárez 3516, Santa María · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Calle%20Pino%20Su%C3%A1rez%203516%2C%20Santa%20Mar%C3%ADa%2C%2032670%20Ciudad%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–6:00 PM · 656 633 9976</span>
         </div>
         <div class="compact-row">
           <span class="name">📍 Ejército<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
@@ -305,9 +312,40 @@
       <form id="bookingForm">
         <div class="field-row">
           <div class="field"><label data-es="Nombre completo" data-en="Full name">Nombre completo</label><input type="text" id="name" name="name" required></div>
-          <div class="field"><label data-es="Teléfono" data-en="Phone">Teléfono</label><input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s()]{7,20}" title="Ingresa un teléfono válido (7 a 20 dígitos)"></div>
+          <div class="field">
+            <label data-es="Teléfono" data-en="Phone">Teléfono</label>
+            <div class="phone-row">
+              <select id="phoneCountry" aria-label="Código de país">
+                <option value="+52" data-es="🇲🇽 México (+52)" data-en="🇲🇽 Mexico (+52)">🇲🇽 México (+52)</option>
+                <option value="+1" data-es="🇺🇸 Estados Unidos (+1)" data-en="🇺🇸 United States (+1)">🇺🇸 Estados Unidos (+1)</option>
+                <option value="+1" data-es="🇨🇦 Canadá (+1)" data-en="🇨🇦 Canada (+1)">🇨🇦 Canadá (+1)</option>
+                <option value="+57" data-es="🇨🇴 Colombia (+57)" data-en="🇨🇴 Colombia (+57)">🇨🇴 Colombia (+57)</option>
+                <option value="+502" data-es="🇬🇹 Guatemala (+502)" data-en="🇬🇹 Guatemala (+502)">🇬🇹 Guatemala (+502)</option>
+                <option value="+58" data-es="🇻🇪 Venezuela (+58)" data-en="🇻🇪 Venezuela (+58)">🇻🇪 Venezuela (+58)</option>
+              </select>
+              <input type="tel" id="phoneNumber" required pattern="[0-9\-\s()]{7,15}" title="Ingresa un teléfono válido (7 a 15 dígitos)" placeholder="656 123 4567" autocomplete="tel-national">
+            </div>
+            <input type="hidden" id="phone" name="phone">
+          </div>
         </div>
-        <div class="field"><label data-es="Correo" data-en="Email">Correo</label><input type="email" id="email" name="email" required></div>
+        <div class="field">
+          <label data-es="Correo" data-en="Email">Correo</label>
+          <div class="email-row">
+            <input type="text" id="emailLocal" required autocomplete="off" inputmode="email" placeholder="tunombre" pattern="[a-zA-Z0-9._%+\-]+" title="Solo la parte antes de la @, sin espacios">
+            <span class="email-at">@</span>
+            <select id="emailDomain">
+              <option value="gmail.com" selected>gmail.com</option>
+              <option value="hotmail.com">hotmail.com</option>
+              <option value="outlook.com">outlook.com</option>
+              <option value="yahoo.com">yahoo.com</option>
+              <option value="icloud.com">icloud.com</option>
+              <option value="live.com">live.com</option>
+              <option value="otro" data-es="Otro…" data-en="Other…">Otro…</option>
+            </select>
+          </div>
+          <input type="text" id="emailDomainCustom" style="display:none;margin-top:6px;" placeholder="tudominio.com">
+          <input type="hidden" id="email" name="email">
+        </div>
         <div class="field-row">
           <div class="field">
             <label data-es="Sucursal / Recogida" data-en="Location / Pickup">Sucursal / Recogida</label>
@@ -404,11 +442,47 @@
     "Sendero": "sendero@dentalinedentista.com",
     "El Paso": "natdentalineelpaso@opticas20-20.com"
   };
+  // ---- Phone country code + Email domain helpers (reduce typos on mobile) ----
+  const phoneCountry = document.getElementById('phoneCountry');
+  const phoneNumber = document.getElementById('phoneNumber');
+  const phoneHidden = document.getElementById('phone');
+  function syncPhone(){
+    const num = phoneNumber.value.trim();
+    phoneHidden.value = num ? `${phoneCountry.value} ${num}` : '';
+  }
+  phoneCountry.addEventListener('change', syncPhone);
+  phoneNumber.addEventListener('input', syncPhone);
+
+  const emailLocal = document.getElementById('emailLocal');
+  const emailDomain = document.getElementById('emailDomain');
+  const emailDomainCustom = document.getElementById('emailDomainCustom');
+  const emailHidden = document.getElementById('email');
+  function syncEmail(){
+    const local = emailLocal.value.trim();
+    const domain = emailDomain.value === 'otro' ? emailDomainCustom.value.trim() : emailDomain.value;
+    emailHidden.value = (local && domain) ? `${local}@${domain}` : '';
+  }
+  emailDomain.addEventListener('change', () => {
+    emailDomainCustom.style.display = emailDomain.value === 'otro' ? 'block' : 'none';
+    if (emailDomain.value === 'otro') emailDomainCustom.focus();
+    syncEmail();
+  });
+  emailLocal.addEventListener('input', syncEmail);
+  emailDomainCustom.addEventListener('input', syncEmail);
+
   const form = document.getElementById('bookingForm');
   const statusEl = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    syncPhone();
+    syncEmail();
+    if (emailDomain.value === 'otro' && !emailDomainCustom.value.trim()) {
+      statusEl.className = 'form-status err';
+      statusEl.textContent = 'Escribe el dominio de tu correo (ej. tudominio.com).';
+      emailDomainCustom.focus();
+      return;
+    }
     const location = document.getElementById('location').value;
     const targetEmail = BRANCH_EMAILS[location];
     if (!targetEmail) {
