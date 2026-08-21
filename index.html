@@ -8,21 +8,19 @@
 <meta property="og:type" content="business.business">
 <meta property="og:title" content="Dentaline Dentista — Tu dentista de confianza">
 <meta property="og:description" content="7 consultorios en Ciudad Juárez con transporte gratis desde El Paso, TX. Agenda tu cita hoy.">
-<meta property="og:image" content="images/office-photo.webp">
+<meta property="og:image" content="https://dentalinemx.com/images/office-photo.webp">
 <meta property="og:locale" content="es_MX">
 <meta property="og:locale:alternate" content="en_US">
-<!--
-  NOTE for whoever publishes this: once this page lives at a real domain, add
-  <link rel="canonical"> and <meta property="og:url"> pointing to it, and fill
-  in the "url" field in the JSON-LD block below.
--->
+<meta property="og:url" content="https://dentalinemx.com/">
+<link rel="canonical" href="https://dentalinemx.com/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Dentist",
   "name": "Dentaline Dentista",
   "telephone": "+526564196281",
-  "image": "images/office-photo.webp",
+  "url": "https://dentalinemx.com/",
+  "image": "https://dentalinemx.com/images/office-photo.webp",
   "areaServed": ["Ciudad Juárez, Chihuahua", "El Paso, TX"],
   "department": [
     { "@type": "Dentist", "name": "Dentaline Aztecas", "address": { "@type": "PostalAddress", "streetAddress": "Av. de los Aztecas 9109-1, Ciudad Moderna", "addressLocality": "Ciudad Juárez", "addressRegion": "Chihuahua", "addressCountry": "MX" }, "telephone": "+526566339976" },
@@ -119,17 +117,9 @@
   .compact-row .details{font-size:12.5px; color:var(--muted); text-align:right; line-height:1.5;}
   .map-link{color:var(--blue-600); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
   .map-link:hover{color:var(--blue-700);}
-  .pending{
-    display:inline-block; font-size:10.5px; font-weight:700; color:var(--red-600);
-    background:var(--red-100); padding:2px 8px; border-radius:100px; margin-left:6px;
-  }
   .tag-opt{
     display:inline-block; font-size:10.5px; font-weight:700; color:var(--blue-700);
     background:var(--blue-100); padding:2px 8px; border-radius:100px; margin-left:6px;
-  }
-  .missing-note{
-    margin-top:20px; background:var(--blue-100); border:1px solid var(--line); border-radius:14px;
-    padding:14px 18px; font-size:13px; color:var(--blue-700);
   }
   .mini-ins{
     display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
@@ -158,10 +148,10 @@
   .field textarea{resize:vertical; min-height:70px;}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media(max-width:520px){ .field-row{grid-template-columns:1fr;} }
-  #formStatus{font-size:14px; padding:12px 14px; border-radius:10px; display:none;}
-  #formStatus.ok{display:block; background:var(--green-100); color:#3d5417; border:1px solid var(--green-500);}
-  #formStatus.err{display:block; background:var(--red-100); color:#8A2C2C; border:1px solid #E39A9A;}
-  #formStatus.sending{display:block; background:var(--blue-100); color:var(--blue-700); border:1px solid var(--line);}
+  .form-status{font-size:14px; padding:12px 14px; border-radius:10px; display:none;}
+  .form-status.ok{display:block; background:var(--green-100); color:#3d5417; border:1px solid var(--green-500);}
+  .form-status.err{display:block; background:var(--red-100); color:#8A2C2C; border:1px solid #E39A9A;}
+  .form-status.sending{display:block; background:var(--blue-100); color:var(--blue-700); border:1px solid var(--line);}
   /* ---------- SLIDE 3: Identidad — Misión / Visión ---------- */
   .slide3{
     background:linear-gradient(150deg, var(--blue-600) 0%, var(--blue-500) 45%, var(--green-500) 100%);
@@ -194,7 +184,7 @@
 <body>
 <header>
   <div class="wrap nav">
-    <div class="nav-logo"><img src="images/logo.webp" alt="Dentaline"></div>
+    <div class="nav-logo"><img src="images/logo.webp" alt="Dentaline" width="1400" height="649"></div>
     <div class="nav-cta">
       <div class="lang-toggle">
         <button data-lang-btn="es" class="active">ES</button>
@@ -208,7 +198,7 @@
   <!-- ============ SLIDE 1: HERO ============ -->
   <section class="slide1" id="inicio">
     <div class="wrap">
-      <div class="hero-logo"><img src="images/logo.webp" alt="Dentaline — Tu dentista de confianza"></div>
+      <div class="hero-logo"><img src="images/logo.webp" alt="Dentaline — Tu dentista de confianza" width="1400" height="649"></div>
       <div class="transporte-banner">
         <span data-es="TRANSPORTE GRATIS" data-en="FREE TRANSPORT">TRANSPORTE GRATIS</span>
         <span class="arrow">El Paso → Juárez</span>
@@ -217,7 +207,7 @@
         <a href="#agendar" class="btn btn-green btn-lg" data-es="Agendar Cita" data-en="Book Your Appointment">Agendar Cita</a>
       </div>
       <div class="slide1-photo">
-        <img src="images/office-photo.webp" alt="Consultorio Dentaline">
+        <img src="images/office-photo.webp" alt="Consultorio Dentaline" width="1200" height="1400" fetchpriority="high">
       </div>
       <p class="slide1-caption" data-es="Nuestro consultorio — tecnología digital, ambiente cómodo, equipo certificado." data-en="Our office — digital technology, a comfortable environment, certified team.">Nuestro consultorio — tecnología digital, ambiente cómodo, equipo certificado.</p>
     </div>
@@ -277,19 +267,27 @@
       </div>
       <div id="insuranceUploadWrap">
         <div class="upload-card">
-          <form id="insuranceForm">
+          <form id="insuranceForm" action="https://formsubmit.co/ingresos2@opticas20-20.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="Nueva verificación de seguro — foto de tarjeta">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://dentalinemx.com/#seguro-enviado">
             <div class="field-row">
-              <div class="field"><label data-es="Nombre" data-en="Name">Nombre</label><input type="text" id="ins-name" name="name" required></div>
-              <div class="field"><label data-es="Correo o teléfono" data-en="Email or phone">Correo o teléfono</label><input type="text" id="ins-contact" name="contact" required></div>
+              <div class="field"><label for="ins-name" data-es="Nombre" data-en="Name">Nombre</label><input type="text" id="ins-name" name="Nombre" required></div>
+              <div class="field"><label for="ins-contact" data-es="Correo o teléfono" data-en="Email or phone">Correo o teléfono</label><input type="text" id="ins-contact" name="Contacto" required></div>
             </div>
             <div class="field">
-              <label data-es="Foto de tu tarjeta de seguro" data-en="Photo of your insurance card">Foto de tu tarjeta de seguro</label>
-              <input type="file" id="ins-file" name="attachment" accept="image/*" multiple required>
+              <label for="ins-provider" data-es="Aseguradora (opcional)" data-en="Insurance provider (optional)">Aseguradora (opcional)</label>
+              <input type="text" id="ins-provider" name="Aseguradora" placeholder="Ej. MetLife, GNP, AXA…">
             </div>
-            <input type="text" id="ins-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="field">
+              <label for="ins-file" data-es="Foto de tu tarjeta de seguro" data-en="Photo of your insurance card">Foto de tu tarjeta de seguro</label>
+              <input type="file" id="ins-file" name="attachment" accept="image/*" multiple required>
+              <span style="font-size:12px;color:var(--muted)" data-es="Máximo 10MB en total." data-en="10MB total maximum.">Máximo 10MB en total.</span>
+            </div>
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
             <button type="submit" class="btn btn-primary" id="insSubmitBtn" data-es="Enviar" data-en="Send">Enviar</button>
-            <div id="insFormStatus" role="status"></div>
           </form>
+          <div id="insFormStatus" class="form-status" role="status"></div>
         </div>
       </div>
       <div class="subhead" id="agendar" data-es="Agendar" data-en="Book">Agendar</div>
@@ -327,14 +325,14 @@
         <div class="field"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="date" name="date"></div>
         <input type="text" id="booking-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn btn-green" id="submitBtn" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
-        <div id="formStatus" role="status"></div>
+        <div id="formStatus" class="form-status" role="status"></div>
       </form>
     </div>
   </section>
   <!-- ============ SLIDE 3: MISIÓN, VISIÓN Y CONTACTO ============ -->
   <section class="slide3" id="identidad">
     <div class="wrap">
-      <div class="slide3-logo"><img src="images/logo.webp" alt="Dentaline"></div>
+      <div class="slide3-logo"><img src="images/logo.webp" alt="Dentaline" width="1400" height="649"></div>
       <div class="mv-grid">
         <div class="mv-card">
           <div class="mv-icon">🎯</div>
@@ -348,7 +346,7 @@
         </div>
       </div>
       <div class="reception-photo">
-        <img src="images/reception-photo.webp" alt="Consultorio Dentaline">
+        <img src="images/reception-photo.webp" alt="Consultorio Dentaline" width="1280" height="720" loading="lazy">
       </div>
       <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
       <div class="slide3-cta">
@@ -403,7 +401,7 @@
     const location = document.getElementById('location').value;
     const targetEmail = BRANCH_EMAILS[location];
     if (!targetEmail) {
-      statusEl.className = 'err';
+      statusEl.className = 'form-status err';
       statusEl.textContent = 'Elige una sucursal antes de enviar.';
       return;
     }
@@ -418,7 +416,7 @@
       _honey: document.getElementById('booking-honey').value
     };
     submitBtn.disabled = true;
-    statusEl.className = 'sending';
+    statusEl.className = 'form-status sending';
     statusEl.textContent = 'Enviando tu solicitud…';
     try {
       const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
@@ -427,55 +425,40 @@
         body: JSON.stringify(payload)
       });
       if (res.ok) {
-        statusEl.className = 'ok';
+        statusEl.className = 'form-status ok';
         statusEl.textContent = '¡Listo! Tu solicitud fue enviada. Te contactaremos pronto.';
         form.reset();
       } else { throw new Error('bad response'); }
     } catch (err) {
-      statusEl.className = 'err';
+      statusEl.className = 'form-status err';
       statusEl.textContent = 'No se pudo enviar automáticamente. Por favor llámanos al 656 419 6281.';
     } finally {
       submitBtn.disabled = false;
     }
   });
   // ---- Insurance card upload ----
-  // Insurance card uploads route here (not shown anywhere in the UI).
-  const INSURANCE_UPLOAD_EMAIL = "ingresos2@opticas20-20.com";
+  // Submits as a real (non-AJAX) multipart form POST — required for FormSubmit
+  // to actually attach the file to the email. Their JSON/ajax endpoint does not
+  // reliably deliver file attachments, only plain field data.
   const insForm = document.getElementById('insuranceForm');
   const insStatusEl = document.getElementById('insFormStatus');
   const insSubmitBtn = document.getElementById('insSubmitBtn');
-  insForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('_subject', 'Nueva verificación de seguro — foto de tarjeta');
-    formData.append('Nombre', document.getElementById('ins-name').value);
-    formData.append('Contacto', document.getElementById('ins-contact').value);
-    formData.append('_honey', document.getElementById('ins-honey').value);
-    const files = document.getElementById('ins-file').files;
-    for (let i = 0; i < files.length; i++) {
-      formData.append('attachment', files[i]);
-    }
+  insForm.addEventListener('submit', () => {
     insSubmitBtn.disabled = true;
-    insStatusEl.className = 'sending';
+    insStatusEl.className = 'form-status sending';
     insStatusEl.textContent = 'Enviando…';
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(INSURANCE_UPLOAD_EMAIL)}`, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
-      if (res.ok) {
-        insStatusEl.className = 'ok';
-        insStatusEl.textContent = '¡Listo! Recibimos tu tarjeta y la revisamos antes de tu cita.';
-        insForm.reset();
-      } else { throw new Error('bad response'); }
-    } catch (err) {
-      insStatusEl.className = 'err';
-      insStatusEl.textContent = 'No se pudo enviar. Por favor llámanos al 656 419 6281.';
-    } finally {
-      insSubmitBtn.disabled = false;
-    }
+    // No preventDefault here — the browser submits the form natively and
+    // FormSubmit redirects back to the _next URL below on success.
   });
+  // After a successful submission, FormSubmit redirects back here with
+  // #seguro-enviado — show a confirmation instead of the empty form.
+  if (window.location.hash === '#seguro-enviado') {
+    insUploadWrap.classList.add('open');
+    insForm.style.display = 'none';
+    insStatusEl.className = 'form-status ok';
+    insStatusEl.textContent = '¡Listo! Recibimos tu tarjeta y la revisamos antes de tu cita.';
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
 </script>
 </body>
 </html>
