@@ -109,6 +109,24 @@
   }
   .slide1-photo img{width:100%; height:auto; display:block;}
   .slide1-caption{margin-top:14px; font-size:13.5px; color:var(--muted);}
+  /* ---------- SLIDE 1B: Nuestras sucursales (photo strip) ---------- */
+  .slide-locations{padding:0 0 56px; text-align:center;}
+  .loc-strip{
+    display:flex; gap:14px; overflow-x:auto; padding:8px 4px 10px; margin-top:8px;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  }
+  .loc-strip::-webkit-scrollbar{height:6px;}
+  .loc-strip::-webkit-scrollbar-thumb{background:var(--line); border-radius:10px;}
+  .loc-card{
+    position:relative; flex:0 0 auto; width:220px; scroll-snap-align:start;
+    border-radius:16px; overflow:hidden; box-shadow:0 8px 20px -8px rgba(46,42,94,0.25);
+  }
+  .loc-card img{width:100%; height:220px; object-fit:cover; display:block;}
+  .loc-label{
+    position:absolute; left:10px; bottom:10px; background:rgba(255,255,255,0.92); color:var(--ink);
+    font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:100px;
+  }
+  @media(max-width:640px){ .loc-card{width:180px;} .loc-card img{height:180px;} }
   /* ---------- SLIDE 2: Todo en un lugar ---------- */
   .slide2{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .head-block{max-width:640px; margin:0 auto 36px; text-align:center;}
@@ -227,6 +245,38 @@
         <img src="images/office-photo.webp" alt="Consultorio Dentaline" width="1200" height="1400" fetchpriority="high">
       </div>
       <p class="slide1-caption" data-es="Nuestro consultorio — tecnología digital, ambiente cómodo, equipo certificado." data-en="Our office — digital technology, a comfortable environment, certified team.">Nuestro consultorio — tecnología digital, ambiente cómodo, equipo certificado.</p>
+    </div>
+  </section>
+  <!-- ============ SLIDE 1B: NUESTRAS SUCURSALES ============ -->
+  <section class="slide-locations">
+    <div class="wrap">
+      <span class="eyebrow" data-es="Conócenos" data-en="See for yourself">Conócenos</span>
+      <h2 data-es="Nuestras sucursales" data-en="Our locations" style="font-size:clamp(22px,3vw,30px); margin:0 0 4px;">Nuestras sucursales</h2>
+      <div class="loc-strip">
+        <div class="loc-card">
+          <img src="images/sucursal-marca.webp" alt="Dentaline Dentista" loading="lazy" width="640" height="640">
+        </div>
+        <div class="loc-card">
+          <img src="images/sucursal-aztecas.webp" alt="Dentaline Aztecas" loading="lazy" width="640" height="640">
+          <span class="loc-label">Aztecas</span>
+        </div>
+        <div class="loc-card">
+          <img src="images/sucursal-ejercito.webp" alt="Dentaline Ejército" loading="lazy" width="640" height="640">
+          <span class="loc-label">Ejército</span>
+        </div>
+        <div class="loc-card">
+          <img src="images/sucursal-pasaje.webp" alt="Dentaline Pasaje" loading="lazy" width="640" height="640">
+          <span class="loc-label">Pasaje</span>
+        </div>
+        <div class="loc-card">
+          <img src="images/sucursal-riogrande.webp" alt="Dentaline Rio Grande" loading="lazy" width="640" height="640">
+          <span class="loc-label">Rio Grande</span>
+        </div>
+        <div class="loc-card">
+          <img src="images/sucursal-libramiento.webp" alt="Dentaline Libramiento" loading="lazy" width="640" height="640">
+          <span class="loc-label">Libramiento</span>
+        </div>
+      </div>
     </div>
   </section>
   <!-- ============ SLIDE 2: TODO EN UN LUGAR ============ -->
