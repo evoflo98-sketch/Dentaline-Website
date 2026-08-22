@@ -48,7 +48,7 @@
   :root{
     --blue-700:#1585BD; --blue-600:#1C9AD6; --blue-500:#29ABE2; --blue-100:#E4F5FC;
     --green-600:#7AB92E; --green-500:#8DC63F; --green-100:#EEF8DF;
-    --ink:#2E2A5E; --paper:#F8FBFD; --white:#FFFFFF; --muted:#5C5A80; --line:#DCEAF5;
+    --ink:#2E2A5E; --paper:#F8FBFD; --white:#FFFFFF; --muted:#494672; --line:#DCEAF5;
     --gold:#F5B300; --red-100:#FCEAEA; --red-600:#B23A3A; --radius:18px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -74,11 +74,11 @@
     border:1px solid var(--line);
   }
   .lang-toggle button{
-    border:none; background:transparent; padding:4px 9px; border-radius:100px; font-size:11px; font-weight:700;
-    cursor:pointer; color:var(--blue-700); font-family:'Inter', sans-serif;
+    border:none; background:transparent; padding:6px 13px; border-radius:100px; font-size:13px; font-weight:700;
+    cursor:pointer; color:var(--ink); font-family:'Inter', sans-serif;
   }
-  .lang-toggle button.active{background:var(--blue-500); color:#fff;}
-  .nav-link{color:var(--muted); font-weight:500; font-size:.78rem; text-decoration:none; margin-right:2px; letter-spacing:.01em;}
+  .lang-toggle button.active{background:var(--blue-700); color:#fff;}
+  .nav-link{color:var(--ink); font-weight:600; font-size:.92rem; text-decoration:none; margin-right:4px; letter-spacing:.01em;}
   .nav-link:hover{color:var(--blue-700);}
   .nav-cta{display:flex; align-items:center; gap:14px;}
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 26px; border-radius:100px; font-weight:700; font-size:15px; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; font-family:'Inter', sans-serif; }
@@ -108,7 +108,7 @@
     box-shadow:0 30px 60px -20px rgba(46,42,94,0.3);
   }
   .slide1-photo img{width:100%; height:auto; display:block;}
-  .slide1-caption{margin-top:14px; font-size:13.5px; color:var(--muted);}
+  .slide1-caption{margin-top:14px; font-size:14.5px; color:var(--muted);}
   /* ---------- SLIDE 1B: Nuestras sucursales (photo strip) ---------- */
   .slide-locations{padding:0 0 56px; text-align:center;}
   .loc-strip{
@@ -142,7 +142,7 @@
   .compact-row:last-child{border-bottom:none;}
   .compact-row.hub{background:var(--green-100);}
   .compact-row .name{font-family:'Baloo 2', sans-serif; font-weight:700; font-size:15px; display:flex; align-items:center; gap:6px; min-width:120px;}
-  .compact-row .details{font-size:12.5px; color:var(--muted); text-align:right; line-height:1.5;}
+  .compact-row .details{font-size:13.5px; color:var(--muted); text-align:right; line-height:1.6;}
   .map-link{color:var(--blue-600); font-weight:700; text-decoration:underline; text-underline-offset:2px;}
   .map-link:hover{color:var(--blue-700);}
   .tag-opt{
@@ -153,8 +153,8 @@
     display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
     background:var(--green-100); border:1px solid var(--green-500); border-radius:14px; padding:16px 20px;
   }
-  .mini-ins p{font-size:14px; color:#3d5417; font-weight:600;}
-  .mini-ins button{ background:transparent; border:1px solid var(--green-600); color:#3d5417; font-weight:700; font-size:13px; padding:9px 16px; border-radius:100px; cursor:pointer; font-family:'Inter', sans-serif; }
+  .mini-ins p{font-size:14.5px; color:#3d5417; font-weight:600;}
+  .mini-ins button{ background:transparent; border:2px solid var(--green-600); color:#3d5417; font-weight:700; font-size:14px; padding:9px 16px; border-radius:100px; cursor:pointer; font-family:'Inter', sans-serif; }
   #insuranceUploadWrap{ display:none; margin-top:14px; }
   #insuranceUploadWrap.open{ display:block; }
   .upload-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:22px; }
@@ -192,8 +192,11 @@
     background:linear-gradient(150deg, var(--blue-600) 0%, var(--blue-500) 45%, var(--green-500) 100%);
     color:#fff; text-align:center; position:relative; overflow:hidden;
   }
-  .slide3-logo{max-width:220px; margin:0 auto 8px; filter:brightness(0) invert(1); opacity:0.95;}
-  .slide3-logo img{width:100%; height:auto;}
+  .slide3-logo{
+    max-width:240px; margin:0 auto 20px; padding:18px 26px;
+    background:#fff; border-radius:20px; box-shadow:0 14px 34px -12px rgba(0,0,0,0.4);
+  }
+  .slide3-logo img{width:100%; height:auto; display:block;}
   .mv-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:900px; margin:36px auto 40px;}
   @media(max-width:720px){ .mv-grid{grid-template-columns:1fr;} }
   .mv-card{
@@ -204,12 +207,12 @@
   .mv-card h3{color:#fff; font-size:19px; margin-bottom:10px;}
   .mv-card p{color:rgba(255,255,255,0.92); font-size:14.5px; line-height:1.6;}
   .slide3-cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:48px;}
-  .slide3-cta .btn-primary{background:#fff; color:var(--blue-700); box-shadow:none;}
-  .slide3-cta .btn-ghost{border-color:rgba(255,255,255,0.5); color:#fff;}
-  .slide3-cta .btn-ghost:hover{background:rgba(255,255,255,0.15);}
+  .slide3-cta .btn-primary{background:#fff; color:var(--blue-700); box-shadow:0 6px 18px rgba(0,0,0,0.2);}
+  .slide3-cta .btn-ghost{background:rgba(255,255,255,0.22); border:2px solid #fff; color:#fff; font-weight:700;}
+  .slide3-cta .btn-ghost:hover{background:rgba(255,255,255,0.38);}
   .reception-photo{max-width:640px; margin:0 auto 40px; border-radius:20px; overflow:hidden; box-shadow:0 20px 50px -15px rgba(0,0,0,0.4);}
   .reception-photo img{width:100%; height:auto; display:block;}
-  .reception-caption{font-size:13px; color:rgba(255,255,255,0.85); margin:-24px auto 44px; text-align:center;}
+  .reception-caption{font-size:14.5px; color:rgba(255,255,255,0.94); margin:-24px auto 44px; text-align:center;}
   .wa-float{
     position:fixed; right:20px; bottom:20px; z-index:60;
     width:58px; height:58px; border-radius:50%;
@@ -220,7 +223,7 @@
   .wa-float:hover{transform:scale(1.08);}
   .wa-float svg{width:29px; height:29px;}
   @media(max-width:640px){ .wa-float{right:14px; bottom:14px; width:52px; height:52px;} .wa-float svg{width:25px; height:25px;} }
-  footer{padding:32px 0; font-size:13px; color:rgba(255,255,255,0.85); border-top:1px solid rgba(255,255,255,0.25);}
+  footer{padding:32px 0; font-size:14px; color:rgba(255,255,255,0.92); border-top:1px solid rgba(255,255,255,0.25);}
   .footer-bottom{ display:flex; justify-content:center; flex-wrap:wrap; gap:18px; text-align:center; }
   .footer-bottom a{color:#fff; font-weight:600;}
   .footer-bottom a:hover{opacity:0.8;}
