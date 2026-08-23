@@ -82,7 +82,7 @@
   .nav-link:hover{color:var(--blue-700);}
   .nav-cta{display:flex; align-items:center; gap:14px;}
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 26px; border-radius:100px; font-weight:700; font-size:15px; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; font-family:'Inter', sans-serif; }
-  .btn-lg{padding:22px 46px; font-size:20px;}
+  .btn-lg{padding:28px 58px; font-size:24px;}
   .btn-primary{ background:var(--blue-500); color:#fff; box-shadow:0 8px 22px rgba(41,171,226,0.35); }
   .btn-primary:hover{background:var(--blue-700); transform:translateY(-1px);}
   .btn-green{ background:var(--green-500); color:#26330c; box-shadow:0 8px 22px rgba(141,198,63,0.4); }
@@ -96,11 +96,12 @@
   .hero-logo img{width:100%; height:auto;}
   .transporte-banner{
     display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:center;
-    background:var(--green-100); color:#4a6821;
+    background:var(--green-100); color:#4a6821; text-decoration:none; cursor:pointer;
     padding:6px 16px; border-radius:100px; margin:16px 0 26px;
     font-family:'IBM Plex Mono', monospace; font-weight:600; font-size:12px; letter-spacing:.02em;
-    border:1px solid var(--green-500);
+    border:1px solid var(--green-500); transition:background .15s ease;
   }
+  .transporte-banner:hover{background:var(--green-500); color:#fff;}
   .transporte-banner .arrow{font-size:0.9em; opacity:0.8;}
   .slide1-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:44px;}
   .hero-mosaic{
@@ -132,6 +133,9 @@
     font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:100px;
   }
   @media(max-width:640px){ .loc-card{width:180px;} .loc-card img{height:180px;} }
+  /* ---------- SLIDE 1C: Nuestro consultorio (reception photo) ---------- */
+  .slide-reception{ text-align:center; padding:8px 0 70px; }
+  .slide-reception .reception-caption{ color:var(--muted); }
   /* ---------- SLIDE 2: Todo en un lugar ---------- */
   .slide2{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .head-block{max-width:640px; margin:0 auto 36px; text-align:center;}
@@ -239,7 +243,7 @@
   <div class="wrap nav">
     <div class="nav-logo"><img src="images/logo.webp" alt="Dentaline" width="1400" height="649"></div>
     <div class="nav-cta">
-      <a href="faq.html" class="nav-link" data-es="Preguntas Frecuentes" data-en="FAQ">Preguntas Frecuentes</a>
+      <a href="faq.html" class="nav-link" data-es="Informes" data-en="Info">Informes</a>
       <div class="lang-toggle">
         <button data-lang-btn="es" class="active">ES</button>
         <button data-lang-btn="en">EN</button>
@@ -251,20 +255,13 @@
   <!-- ============ SLIDE 1: HERO ============ -->
   <section class="slide1" id="inicio">
     <div class="wrap">
-      <div class="hero-logo"><img src="images/logo.webp" alt="Dentaline — Tu dentista de confianza" width="1400" height="649"></div>
-      <div class="transporte-banner">
+      <a href="#sucursales" class="transporte-banner">
         <span data-es="TRANSPORTE GRATIS" data-en="FREE TRANSPORT">TRANSPORTE GRATIS</span>
         <span class="arrow">El Paso → Juárez</span>
-      </div>
+      </a>
       <div class="slide1-actions">
         <a href="#agendar" class="btn btn-green btn-lg" data-es="Agendar Cita Gratis" data-en="Book Your Free Appointment">Agendar Cita Gratis</a>
       </div>
-      <div class="hero-mosaic">
-        <div class="m-featured"><img src="images/mosaic-implantes.webp" alt="Implantes dentales — Dentaline" width="848" height="480" fetchpriority="high"></div>
-        <div><img src="images/mosaic-endodoncias.webp" alt="Endodoncias — Dentaline" width="848" height="480" loading="lazy"></div>
-        <div><img src="images/mosaic-braquets.webp" alt="Brackets y ortodoncia — Dentaline" width="848" height="480" loading="lazy"></div>
-      </div>
-      <p class="slide1-caption" data-es="Algunos de nuestros tratamientos más solicitados." data-en="Some of our most requested treatments.">Algunos de nuestros tratamientos más solicitados.</p>
     </div>
   </section>
   <!-- ============ SLIDE 1B: NUESTRAS SUCURSALES ============ -->
@@ -297,6 +294,15 @@
           <span class="loc-label">Libramiento</span>
         </div>
       </div>
+    </div>
+  </section>
+  <!-- ============ SLIDE 1C: NUESTRO CONSULTORIO ============ -->
+  <section class="slide-reception">
+    <div class="wrap">
+      <div class="reception-photo">
+        <img src="images/reception-photo.webp" alt="Recepción Dentaline" width="1280" height="720" fetchpriority="high">
+      </div>
+      <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
     </div>
   </section>
   <!-- ============ SLIDE 2: TODO EN UN LUGAR ============ -->
@@ -357,9 +363,14 @@
           <form id="insuranceForm" action="https://formsubmit.co/ingresos2@opticas20-20.com" method="POST" enctype="multipart/form-data" target="ins-upload-frame">
             <input type="hidden" name="_subject" value="Nueva verificación de seguro — foto de tarjeta">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" id="insAutoresponse" value="¡Gracias! Recibimos la foto de tu tarjeta de seguro y la revisaremos antes de tu cita.">
             <div class="field-row">
               <div class="field"><label for="ins-name" data-es="Nombre" data-en="Name">Nombre</label><input type="text" id="ins-name" name="Nombre" required></div>
               <div class="field"><label for="ins-contact" data-es="Correo o teléfono" data-en="Email or phone">Correo o teléfono</label><input type="text" id="ins-contact" name="Contacto" required></div>
+            </div>
+            <div class="field">
+              <label for="ins-email" data-es="Correo (opcional, para tu confirmación)" data-en="Email (optional, for your confirmation)">Correo (opcional, para tu confirmación)</label>
+              <input type="email" id="ins-email" name="email" placeholder="tu@correo.com">
             </div>
             <div class="field">
               <label for="ins-provider" data-es="Aseguradora (opcional)" data-en="Insurance provider (optional)">Aseguradora (opcional)</label>
@@ -378,9 +389,12 @@
         </div>
       </div>
       <div class="subhead" id="agendar" data-es="Agendar" data-en="Book">Agendar</div>
-      <form id="bookingForm">
+      <form id="bookingForm" method="POST" target="booking-iframe">
+        <input type="hidden" name="_subject" id="bookingSubject" value="Nueva solicitud de cita">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" id="bookingAutoresponse" value="¡Gracias por tu solicitud! La recibimos y te contactaremos pronto para confirmar tu cita.">
         <div class="field-row">
-          <div class="field"><label data-es="Nombre completo" data-en="Full name">Nombre completo</label><input type="text" id="name" name="name" required></div>
+          <div class="field"><label data-es="Nombre completo" data-en="Full name">Nombre completo</label><input type="text" id="name" name="Nombre" required></div>
           <div class="field">
             <label data-es="Teléfono" data-en="Phone">Teléfono</label>
             <div class="phone-row">
@@ -394,7 +408,7 @@
               </select>
               <input type="tel" id="phoneNumber" required pattern="[0-9\-\s()]{7,15}" title="Ingresa un teléfono válido (7 a 15 dígitos)" placeholder="656 123 4567" autocomplete="tel-national">
             </div>
-            <input type="hidden" id="phone" name="phone">
+            <input type="hidden" id="phone" name="Teléfono">
           </div>
         </div>
         <div class="field">
@@ -418,7 +432,7 @@
         <div class="field-row">
           <div class="field">
             <label data-es="Sucursal / Punto de salida" data-en="Location / Departure point">Sucursal / Punto de salida</label>
-            <select id="location" name="location" required>
+            <select id="location" name="Sucursal / Punto de salida" required>
               <option value="" disabled selected data-es="Elige una opción" data-en="Choose an option">Elige una opción</option>
               <option value="El Paso" data-es="El Paso (punto de salida y cruce)" data-en="El Paso (departure point &amp; border crossing)">El Paso (punto de salida y cruce)</option>
               <option value="Aztecas">Aztecas</option>
@@ -432,7 +446,7 @@
           </div>
           <div class="field">
             <label data-es="Servicio" data-en="Service">Servicio</label>
-            <select id="service" name="service" required>
+            <select id="service" name="Servicio" required>
               <option value="" disabled selected data-es="Elige un servicio" data-en="Choose a service">Elige un servicio</option>
               <option data-es="Consulta" data-en="Consultation">Consulta</option><option data-es="Limpieza" data-en="Cleaning">Limpieza</option>
               <option data-es="Implantes" data-en="Implants">Implantes</option><option data-es="Blanqueamiento" data-en="Whitening">Blanqueamiento</option><option data-es="Extracciones" data-en="Extractions">Extracciones</option>
@@ -440,11 +454,12 @@
             </select>
           </div>
         </div>
-        <div class="field"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="date" name="date"></div>
+        <div class="field"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="date" name="Fecha preferida"></div>
         <input type="text" id="booking-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn btn-green" id="submitBtn" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
         <div id="formStatus" class="form-status" role="status"></div>
       </form>
+      <iframe name="booking-iframe" title="booking" style="display:none" aria-hidden="true"></iframe>
     </div>
   </section>
   <!-- ============ SLIDE 3: MISIÓN, VISIÓN Y CONTACTO ============ -->
@@ -463,10 +478,12 @@
           <p data-es="Ser la mejor empresa del país, contando con los servicios más profesionales al mejor precio, con un equipo que está a la vanguardia de la odontología y al servicio de los demás." data-en="To be the best company in the country, offering the most professional services at the best price, with a team at the forefront of dentistry and dedicated to serving others.">Ser la mejor empresa del país, contando con los servicios más profesionales al mejor precio, con un equipo que está a la vanguardia de la odontología y al servicio de los demás.</p>
         </div>
       </div>
-      <div class="reception-photo">
-        <img src="images/reception-photo.webp" alt="Consultorio Dentaline" width="1280" height="720" loading="lazy">
+      <div class="hero-mosaic" style="margin-bottom:26px;">
+        <div class="m-featured"><img src="images/mosaic-implantes.webp" alt="Implantes dentales — Dentaline" width="848" height="480" loading="lazy"></div>
+        <div><img src="images/mosaic-endodoncias.webp" alt="Endodoncias — Dentaline" width="848" height="480" loading="lazy"></div>
+        <div><img src="images/mosaic-braquets.webp" alt="Brackets y ortodoncia — Dentaline" width="848" height="480" loading="lazy"></div>
       </div>
-      <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
+      <div class="slide3-logo"><img src="images/logo.webp" alt="Dentaline" width="1400" height="649"></div>
       <div class="slide3-cta">
         <a href="tel:6564196281" class="btn btn-primary" data-es="Llamar 656 419 6281" data-en="Call 656 419 6281">Llamar 656 419 6281</a>
         <a href="https://wa.me/5216572255055?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; color:#fff;" data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</a>
@@ -488,7 +505,9 @@
 <script>
   // ---- Language toggle ----
   const langButtons = document.querySelectorAll('[data-lang-btn]');
+  let currentLang = 'es';
   function setLang(lang){
+    currentLang = lang;
     document.querySelectorAll('[data-es]').forEach(el => {
       const text = el.getAttribute(lang === 'en' ? 'data-en' : 'data-es');
       if (text !== null) el.textContent = text;
@@ -542,14 +561,21 @@
   emailLocal.addEventListener('input', syncEmail);
   emailDomainCustom.addEventListener('input', syncEmail);
 
+  // Native (non-AJAX) multipart POST, submitted into a hidden iframe — same
+  // pattern as the insurance form below. Required for FormSubmit's
+  // "_autoresponse" feature (an automatic confirmation email back to the
+  // person who submitted) to work at all; it does not fire on AJAX/fetch
+  // submissions. The hidden iframe means the visitor never leaves the page.
   const form = document.getElementById('bookingForm');
   const statusEl = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const bookingSubject = document.getElementById('bookingSubject');
+  const bookingAutoresponse = document.getElementById('bookingAutoresponse');
+  form.addEventListener('submit', (e) => {
     syncPhone();
     syncEmail();
     if (emailDomain.value === 'otro' && !emailDomainCustom.value.trim()) {
+      e.preventDefault();
       statusEl.className = 'form-status err';
       statusEl.textContent = 'Escribe el dominio de tu correo (ej. tudominio.com).';
       emailDomainCustom.focus();
@@ -558,40 +584,27 @@
     const location = document.getElementById('location').value;
     const targetEmail = BRANCH_EMAILS[location];
     if (!targetEmail) {
+      e.preventDefault();
       statusEl.className = 'form-status err';
       statusEl.textContent = 'Elige una sucursal antes de enviar.';
       return;
     }
-    const payload = {
-      _subject: `Nueva solicitud — ${location}`,
-      Nombre: document.getElementById('name').value,
-      Teléfono: document.getElementById('phone').value,
-      Correo: document.getElementById('email').value,
-      "Sucursal / Punto de salida": location,
-      Servicio: document.getElementById('service').value,
-      "Fecha preferida": document.getElementById('date').value || "No especificada",
-      _honey: document.getElementById('booking-honey').value
-    };
+    form.action = `https://formsubmit.co/${encodeURIComponent(targetEmail)}`;
+    bookingSubject.value = `Nueva solicitud — ${location}`;
+    bookingAutoresponse.value = currentLang === 'en'
+      ? "Thanks for your request! We've received it and will contact you soon to confirm your appointment. Questions? Call 656 419 6281 or message us on WhatsApp."
+      : "¡Gracias por tu solicitud! La recibimos y te contactaremos pronto para confirmar tu cita. ¿Dudas? Llámanos al 656 419 6281 o escríbenos por WhatsApp.";
+    // No preventDefault here — the form submits natively into the hidden
+    // iframe below rather than navigating the visible page.
     submitBtn.disabled = true;
     statusEl.className = 'form-status sending';
     statusEl.textContent = 'Enviando tu solicitud…';
-    try {
-      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (res.ok) {
-        statusEl.className = 'form-status ok';
-        statusEl.textContent = '¡Listo! Tu solicitud fue enviada. Te contactaremos pronto.';
-        form.reset();
-      } else { throw new Error('bad response'); }
-    } catch (err) {
-      statusEl.className = 'form-status err';
-      statusEl.textContent = 'No se pudo enviar automáticamente. Por favor llámanos al 656 419 6281.';
-    } finally {
+    setTimeout(() => {
+      statusEl.className = 'form-status ok';
+      statusEl.textContent = '¡Listo! Tu solicitud fue enviada. Te contactaremos pronto.';
+      form.reset();
       submitBtn.disabled = false;
-    }
+    }, 2200);
   });
   // ---- Insurance card upload ----
   // Submits as a real (non-AJAX) multipart form POST — required for FormSubmit
@@ -609,7 +622,11 @@
   const insForm = document.getElementById('insuranceForm');
   const insStatusEl = document.getElementById('insFormStatus');
   const insSubmitBtn = document.getElementById('insSubmitBtn');
+  const insAutoresponse = document.getElementById('insAutoresponse');
   insForm.addEventListener('submit', () => {
+    insAutoresponse.value = currentLang === 'en'
+      ? "Thanks! We've received your insurance card photo and will review it before your visit."
+      : "¡Gracias! Recibimos la foto de tu tarjeta de seguro y la revisaremos antes de tu cita.";
     insSubmitBtn.disabled = true;
     insStatusEl.className = 'form-status sending';
     insStatusEl.textContent = 'Enviando…';
