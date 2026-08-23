@@ -74,8 +74,8 @@
     border:1px solid var(--line);
   }
   .lang-toggle button{
-    border:none; background:transparent; padding:6px 13px; border-radius:100px; font-size:13px; font-weight:700;
-    cursor:pointer; color:var(--ink); font-family:'Inter', sans-serif;
+    border:none; background:transparent; padding:11px 15px; border-radius:100px; font-size:13px; font-weight:700;
+    cursor:pointer; color:var(--ink); font-family:'Inter', sans-serif; min-height:44px; min-width:40px;
   }
   .lang-toggle button.active{background:var(--blue-700); color:#fff;}
   .nav-link{color:var(--ink); font-weight:600; font-size:.92rem; text-decoration:none; margin-right:4px; letter-spacing:.01em;}
@@ -180,7 +180,7 @@
   form#bookingForm{ background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:26px; display:grid; gap:14px; }
   .field{display:flex; flex-direction:column; gap:6px;}
   .field label{font-size:13px; font-weight:700; color:var(--ink);}
-  .field input, .field select, .field textarea{ font-family:'Inter', sans-serif; font-size:14.5px; padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); width:100%; }
+  .field input, .field select, .field textarea{ font-family:'Inter', sans-serif; font-size:16px; padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); width:100%; }
   .field textarea{resize:vertical; min-height:70px;}
   .field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media(max-width:520px){ .field-row{grid-template-columns:1fr;} }
@@ -263,7 +263,16 @@
       </div>
     </div>
   </section>
-  <!-- ============ SLIDE 1B: NUESTRAS SUCURSALES ============ -->
+  <!-- ============ SLIDE 1B: NUESTRO CONSULTORIO ============ -->
+  <section class="slide-reception">
+    <div class="wrap">
+      <div class="reception-photo">
+        <img src="images/reception-photo.webp" alt="Recepción Dentaline" width="1280" height="720" fetchpriority="high">
+      </div>
+      <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
+    </div>
+  </section>
+  <!-- ============ SLIDE 1C: NUESTRAS SUCURSALES ============ -->
   <section class="slide-locations">
     <div class="wrap">
       <span class="eyebrow" data-es="Conócenos" data-en="See for yourself">Conócenos</span>
@@ -293,15 +302,6 @@
           <span class="loc-label">Libramiento</span>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- ============ SLIDE 1C: NUESTRO CONSULTORIO ============ -->
-  <section class="slide-reception">
-    <div class="wrap">
-      <div class="reception-photo">
-        <img src="images/reception-photo.webp" alt="Recepción Dentaline" width="1280" height="720" fetchpriority="high">
-      </div>
-      <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
     </div>
   </section>
   <!-- ============ SLIDE 2: TODO EN UN LUGAR ============ -->
@@ -464,7 +464,6 @@
   <!-- ============ SLIDE 3: MISIÓN, VISIÓN Y CONTACTO ============ -->
   <section class="slide3" id="identidad">
     <div class="wrap">
-      <div class="slide3-logo"><img src="images/logo.webp" alt="Dentaline" width="1400" height="649"></div>
       <div class="mv-grid">
         <div class="mv-card">
           <div class="mv-icon">🎯</div>
