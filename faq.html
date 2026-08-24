@@ -70,6 +70,12 @@
   .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:var(--blue-700); background:var(--blue-100); padding:7px 14px; border-radius:100px; margin-bottom:18px; border:1px solid var(--line); }
   h1{ font-size:clamp(26px,4vw,34px); margin-bottom:8px; }
   .sub{ color:var(--muted); font-size:15px; margin-bottom:36px; }
+  .mv-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 40px; }
+  @media(max-width:640px){ .mv-grid{grid-template-columns:1fr;} }
+  .mv-card{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:22px 20px; }
+  .mv-card .mv-icon{ font-size:24px; margin-bottom:8px; }
+  .mv-card h2{ font-size:17px; margin-bottom:8px; }
+  .mv-card p{ font-size:14px; color:var(--muted); line-height:1.6; }
   .faq-list{ display:flex; flex-direction:column; gap:10px; }
   details.faq-item{ background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:4px 20px; }
   details.faq-item[open]{ border-color:var(--blue-500); }
@@ -101,6 +107,19 @@
   <span class="eyebrow" data-es="Ayuda" data-en="Help">Ayuda</span>
   <h1 data-es="Preguntas Frecuentes" data-en="Frequently Asked Questions">Preguntas Frecuentes</h1>
   <p class="sub" data-es="Todo lo que necesitas saber antes de tu cita en Dentaline." data-en="Everything you need to know before your Dentaline appointment.">Todo lo que necesitas saber antes de tu cita en Dentaline.</p>
+
+  <div class="mv-grid">
+    <div class="mv-card">
+      <div class="mv-icon">🎯</div>
+      <h2 data-es="Misión" data-en="Mission">Misión</h2>
+      <p data-es="Cuidar la salud de los dientes de nuestros pacientes a través de nuestro equipo de dentistas y especialistas altamente calificados, contando con la mejor tecnología y nuestro propio laboratorio digital, para cualquier problema bucal de cualquier especialidad. Estamos comprometidos con nuestra sociedad por brindar el mejor servicio de nuestra ciudad." data-en="To care for our patients' dental health through our team of highly qualified dentists and specialists, backed by the best technology and our own digital lab, for any oral health need in any specialty. We are committed to our community, delivering the best service in our city.">Cuidar la salud de los dientes de nuestros pacientes a través de nuestro equipo de dentistas y especialistas altamente calificados, contando con la mejor tecnología y nuestro propio laboratorio digital, para cualquier problema bucal de cualquier especialidad. Estamos comprometidos con nuestra sociedad por brindar el mejor servicio de nuestra ciudad.</p>
+    </div>
+    <div class="mv-card">
+      <div class="mv-icon">🔭</div>
+      <h2 data-es="Visión" data-en="Vision">Visión</h2>
+      <p data-es="Ser la mejor empresa del país, contando con los servicios más profesionales al mejor precio, con un equipo que está a la vanguardia de la odontología y al servicio de los demás." data-en="To be the best company in the country, offering the most professional services at the best price, with a team at the forefront of dentistry and dedicated to serving others.">Ser la mejor empresa del país, contando con los servicios más profesionales al mejor precio, con un equipo que está a la vanguardia de la odontología y al servicio de los demás.</p>
+    </div>
+  </div>
 
   <div class="faq-list">
     <details class="faq-item" open>
