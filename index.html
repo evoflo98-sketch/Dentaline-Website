@@ -79,11 +79,11 @@
   @media (prefers-reduced-motion: reduce){ *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;} }
   /* ---------- Header ---------- */
   header{ position:sticky; top:0; z-index:50; background:rgba(248,251,253,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-  .nav{display:flex; align-items:center; padding:14px 0; gap:24px;}
+  .nav{display:flex; align-items:center; padding:14px 0; gap:14px;}
+  .nav-left{display:flex; align-items:center; gap:8px;}
   .nav-logo{flex:0 1 auto;}
   .nav-logo img{height:92px; width:auto; display:block;}
-  @media(max-width:640px){ .nav-logo img{height:68px;} }
-  .nav-cta{margin-left:auto;}
+  @media(max-width:640px){ .nav-logo img{height:60px;} }
   .lang-toggle{
     display:flex; align-items:center; gap:2px; background:var(--blue-100); border-radius:100px; padding:2px;
     border:1px solid var(--line);
@@ -93,14 +93,20 @@
     cursor:pointer; color:var(--ink); font-family:'Inter', sans-serif; min-height:44px; min-width:40px;
   }
   .lang-toggle button.active{background:var(--blue-700); color:#fff;}
-  .nav-link{color:var(--ink); font-weight:600; font-size:.92rem; text-decoration:none; margin-right:4px; letter-spacing:.01em;}
-  .nav-link:hover{color:var(--blue-700);}
-  .nav-cta{display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:flex-end;}
-  .nav-cta-btn{white-space:nowrap;}
+  .nav-if-btn{
+    background:var(--blue-500); color:#fff; font-weight:700; font-size:13px; letter-spacing:.02em;
+    padding:9px 15px; border-radius:100px; white-space:nowrap; box-shadow:0 4px 12px rgba(41,171,226,0.3);
+    transition:background .15s ease;
+  }
+  .nav-if-btn:hover{background:var(--blue-700);}
+  .nav-cta{margin-left:auto;}
+  .nav-cta-btn{white-space:nowrap; padding:19px 40px; font-size:18px; letter-spacing:.04em;}
   @media(max-width:640px){
-    .nav-cta{gap:8px;}
-    .nav-cta-btn{padding:9px 16px; font-size:12.5px;}
-    .nav-link{font-size:.8rem;}
+    .nav{gap:8px;}
+    .nav-left{gap:6px;}
+    .lang-toggle{display:none;}          /* moves to the floating button on phones */
+    .nav-if-btn{padding:8px 13px; font-size:12.5px;}
+    .nav-cta-btn{padding:13px 20px; font-size:14px;}
   }
   .btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:14px 26px; border-radius:100px; font-weight:700; font-size:15px; cursor:pointer; border:1px solid transparent; transition:transform .15s ease, box-shadow .15s ease, background .15s ease; font-family:'Inter', sans-serif; }
   .btn-lg{padding:28px 58px; font-size:24px;}
@@ -112,7 +118,17 @@
   .btn-ghost:hover{border-color:var(--blue-500); background:var(--blue-100);}
   .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--blue-700); background:var(--blue-100); padding:7px 14px; border-radius:100px; margin-bottom:20px; border:1px solid var(--line); }
   /* ---------- SLIDE 1: Hero ---------- */
-  .slide1{ padding:40px 0 48px; text-align:center; }
+  .slide1{ padding:18px 0 14px; text-align:center; }
+  /* Full-bleed wordmark: SVG scales to exactly the page width, no clipping, no stretch */
+  .wordmark{
+    display:block; width:100%; height:auto; margin:0;
+    user-select:none; pointer-events:none; overflow:visible;
+  }
+  .wordmark text{
+    font-family:'Baloo 2', sans-serif; font-weight:800;
+    fill:var(--blue-700); opacity:0.12;
+  }
+  @media(max-width:640px){ .wordmark text{ opacity:0.17; } }
   .hero-logo{ max-width:520px; margin:0 auto 8px; }
   .hero-logo img{width:100%; height:auto;}
   .transporte-banner{
@@ -154,9 +170,56 @@
     font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:100px;
   }
   @media(max-width:640px){ .loc-card{width:180px;} .loc-card img{height:180px;} }
+  /* --- "hay más deslizando" hint on the locations carousel --- */
+  .loc-shell{position:relative;}
+  .loc-fade{
+    position:absolute; top:0; right:0; width:70px; height:100%;
+    background:linear-gradient(to right, rgba(248,251,253,0) 0%, rgba(248,251,253,0.9) 78%);
+    pointer-events:none; z-index:2; transition:opacity .35s ease;
+  }
+  .loc-hint{
+    position:absolute; top:50%; right:10px; z-index:3;
+    width:46px; height:46px; margin-top:-23px; padding:0;
+    border:none; border-radius:50%; cursor:pointer;
+    background:rgba(21,133,189,0.55); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 14px -4px rgba(0,0,0,0.45);
+    transition:opacity .35s ease, background .15s ease;
+    -webkit-appearance:none; appearance:none;
+  }
+  .loc-hint:hover{background:rgba(21,133,189,0.85);}
+  .loc-hint svg{width:22px; height:22px; display:block;}
+  .loc-hint .chev{animation:locNudge 1.6s ease-in-out infinite;}
+  @keyframes locNudge{
+    0%,100%{transform:translateX(-2px);}
+    50%{transform:translateX(3px);}
+  }
+  /* phones: a stronger left→right pointing sweep, 0.8s per pass */
+  @media(max-width:640px){
+    .loc-hint{width:42px; height:42px; margin-top:-21px; background:rgba(21,133,189,0.62);}
+    .loc-hint svg{width:20px; height:20px;}
+    .loc-hint.swipe{animation:swipeSweep .8s ease-in-out 3;}
+  }
+  @keyframes swipeSweep{
+    0%{transform:translateX(-14px); opacity:.45;}
+    45%{transform:translateX(8px); opacity:1;}
+    70%{transform:translateX(8px); opacity:1;}
+    100%{transform:translateX(-14px); opacity:.45;}
+  }
+  /* once the visitor scrolls the strip, the hint retires */
+  .loc-shell.scrolled .loc-hint, .loc-shell.scrolled .loc-fade{opacity:0; pointer-events:none;}
+  @media (prefers-reduced-motion: reduce){
+    .loc-hint .chev, .loc-hint.swipe{animation:none;}
+  }
   /* ---------- SLIDE 1C: Nuestro consultorio (reception photo) ---------- */
-  .slide-reception{ text-align:center; padding:8px 0 48px; }
+  .slide-reception{ text-align:center; padding:0 0 8px; }
   .slide-reception .reception-caption{ color:var(--muted); }
+  /* the photo tucks into both wordmarks so DENTALINE / foto / DENTISTA read as one block */
+  .slide-reception .reception-photo{ position:relative; z-index:1; max-width:640px; margin:-3vw auto; }
+  .slide-reception .reception-caption{ margin:12px auto 0; }
+  @media(min-width:721px){
+    .slide-reception .reception-photo{ max-width:860px; margin:-7.4vw auto; }
+  }
   /* ---------- SLIDE 2: Todo en un lugar ---------- */
   .slide2{background:var(--white); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
   .head-block{max-width:640px; margin:0 auto 26px; text-align:center;}
@@ -243,6 +306,17 @@
   .wa-float:hover{transform:scale(1.08);}
   .wa-float svg{width:29px; height:29px;}
   @media(max-width:640px){ .wa-float{right:14px; bottom:14px; width:52px; height:52px;} .wa-float svg{width:25px; height:25px;} }
+  /* Floating language switch — phones only, stacked right above WhatsApp */
+  .lang-float{
+    display:none; position:fixed; right:14px; bottom:74px; z-index:60;
+    width:52px; height:52px; border-radius:50%; padding:0; border:2px solid #fff;
+    background:var(--blue-700); color:#fff; cursor:pointer;
+    font-family:'Inter', sans-serif; font-weight:800; font-size:14px; letter-spacing:.02em;
+    box-shadow:0 8px 20px -6px rgba(0,0,0,0.4);
+    -webkit-appearance:none; appearance:none;
+    align-items:center; justify-content:center;
+  }
+  @media(max-width:640px){ .lang-float{display:flex;} }
   footer{padding:32px 0; font-size:14px; color:rgba(255,255,255,0.92); border-top:1px solid rgba(255,255,255,0.25);}
   .footer-bottom{ display:flex; justify-content:center; flex-wrap:wrap; gap:18px; text-align:center; }
   .footer-bottom a{color:#fff; font-weight:600;}
@@ -252,14 +326,16 @@
 <body id="top">
 <header>
   <div class="wrap nav">
-    <a href="#top" class="nav-logo" aria-label="Dentaline — ir al inicio"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo-fallback.png" alt="Dentaline" width="1400" height="649"></picture></a>
-    <div class="nav-cta">
-      <a href="faq.html" class="nav-link" data-es="Informes" data-en="Info">Informes</a>
-      <a href="#agendar" class="btn btn-green nav-cta-btn" data-es="Agendar Cita Gratis" data-en="Book Free Appointment">Agendar Cita Gratis</a>
+    <div class="nav-left">
+      <a href="#top" class="nav-logo" aria-label="Dentaline — ir al inicio"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo-fallback.png" alt="Dentaline" width="1400" height="649"></picture></a>
+      <a href="faq.html" class="nav-if-btn" data-es="IF" data-en="IF" aria-label="Informes">IF</a>
       <div class="lang-toggle">
         <button data-lang-btn="es" class="active">ES</button>
         <button data-lang-btn="en">EN</button>
       </div>
+    </div>
+    <div class="nav-cta">
+      <a href="#agendar" class="btn btn-green nav-cta-btn" data-es="AGENDAR CITA" data-en="BOOK NOW">AGENDAR CITA</a>
     </div>
   </div>
 </header>
@@ -275,10 +351,18 @@
   </section>
   <!-- ============ SLIDE 1B: NUESTRO CONSULTORIO ============ -->
   <section class="slide-reception">
+    <svg class="wordmark" viewBox="0 28 545 72" preserveAspectRatio="xMidYMid meet" role="presentation" aria-hidden="true" focusable="false">
+      <text x="0" y="100" font-size="100" textLength="545" lengthAdjust="spacingAndGlyphs">DENTALINE</text>
+    </svg>
     <div class="wrap">
       <div class="reception-photo">
         <img src="images/reception-photo.webp" alt="Recepción Dentaline" width="1280" height="720" fetchpriority="high">
       </div>
+    </div>
+    <svg class="wordmark" viewBox="0 28 500 72" preserveAspectRatio="xMidYMid meet" role="presentation" aria-hidden="true" focusable="false">
+      <text x="0" y="100" font-size="100" textLength="500" lengthAdjust="spacingAndGlyphs">DENTISTA</text>
+    </svg>
+    <div class="wrap">
       <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
     </div>
   </section>
@@ -287,7 +371,8 @@
     <div class="wrap">
       <span class="eyebrow" data-es="Conócenos" data-en="See for yourself">Conócenos</span>
       <h2 data-es="Nuestras sucursales" data-en="Our locations" style="font-size:clamp(22px,3vw,30px); margin:0 0 4px;">Nuestras sucursales</h2>
-      <div class="loc-strip">
+      <div class="loc-shell" id="locShell">
+      <div class="loc-strip" id="locStrip">
         <div class="loc-card">
           <img src="images/sucursal-marca.webp" alt="Dentaline Dentista" loading="lazy" width="640" height="640">
         </div>
@@ -315,6 +400,11 @@
           <img src="images/sucursal-libramiento.webp" alt="Dentaline Libramiento" loading="lazy" width="640" height="640">
           <span class="loc-label">Libramiento</span>
         </div>
+      </div>
+        <div class="loc-fade" aria-hidden="true"></div>
+        <button type="button" class="loc-hint" id="locHint" aria-label="Ver más sucursales">
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -502,9 +592,11 @@
   <a href="https://wa.me/5216572255055?text=%C2%A1Hola%21%20Me%20gustar%C3%ADa%20agendar%20mi%20cita%20gratis%20%F0%9F%98%8A" target="_blank" rel="noopener" class="wa-float" aria-label="Escríbenos por WhatsApp">
     <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="#fff"><path d="M380.9 97.1C339 55.1 283.2 32 224.4 32c-124.9 0-227 102.1-227 227.1 0 40.1 10.4 79.1 30.2 113.6L0 480l110.4-29c33.2 18.1 70.5 27.6 108 27.6 124.9 0 227-102.1 227-227.1 0-59.7-23.1-115.5-64.5-153.4zM224.4 439.5c-33.9 0-67.1-9.1-96-26.4l-6.9-4.1-65.5 17.2 17.5-63.9-4.5-6.6c-19-28.4-29.1-61.7-29.1-96.5 0-97 79-176 176.5-176 47.1 0 91.4 18.4 124.7 51.6 33.3 33.2 51.6 77.5 51.5 124.6 0 97.1-79 176.1-168.2 176.1zm101.5-130.9c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.5-14.3 18-17.6 21.7-3.2 3.7-6.5 4.1-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.5-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.7 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
   </a>
+  <button type="button" class="lang-float" id="langFloat" aria-label="Change language / Cambiar idioma">EN</button>
 <script>
   // ---- Language toggle ----
   const langButtons = document.querySelectorAll('[data-lang-btn]');
+  const langFloat = document.getElementById('langFloat');
   let currentLang = 'es';
   function setLang(lang){
     currentLang = lang;
@@ -513,9 +605,77 @@
       if (text !== null) el.textContent = text;
     });
     langButtons.forEach(b => b.classList.toggle('active', b.dataset.langBtn === lang));
+    if (langFloat) langFloat.textContent = (lang === 'en') ? 'ES' : 'EN';
     document.documentElement.lang = lang === 'en' ? 'en' : 'es-MX';
   }
   langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.langBtn)));
+  if (langFloat) langFloat.addEventListener('click', () => setLang(currentLang === 'es' ? 'en' : 'es'));
+
+  // ---- Wordmarks: fit each line to the page width exactly, no stretching ----
+  (function(){
+    var marks = document.querySelectorAll('.wordmark');
+    if (!marks.length) return;
+    function fitOne(svg){
+      try {
+        var txt = svg.querySelector('text');
+        if (!txt) return;
+        var ctx = document.createElement('canvas').getContext('2d');
+        if (!ctx) return;
+        ctx.font = '800 100px "Baloo 2", sans-serif';
+        var m = ctx.measureText(txt.textContent);
+        var L = m.actualBoundingBoxLeft, R = m.actualBoundingBoxRight;
+        var A = m.actualBoundingBoxAscent, D = m.actualBoundingBoxDescent;
+        // older browsers don't report ink bounds — keep the static viewBox in that case
+        if (typeof R !== 'number' || typeof A !== 'number' || !(R > 0) || !(A > 0)) return;
+        var w = L + R, h = A + D;
+        var pad = w * 0.008; // hairline breathing room so the outer letters never clip
+        txt.removeAttribute('textLength');
+        txt.removeAttribute('lengthAdjust');
+        svg.setAttribute('viewBox', (-L - pad) + ' ' + (100 - A) + ' ' + (w + pad * 2) + ' ' + h);
+      } catch (e) { /* keep the static fallback */ }
+    }
+    function fitAll(){ for (var i = 0; i < marks.length; i++) fitOne(marks[i]); }
+    if (document.fonts && document.fonts.ready && document.fonts.ready.then) {
+      document.fonts.ready.then(fitAll).catch(function(){});
+    } else if (document.readyState === 'complete') { fitAll(); }
+    else { window.addEventListener('load', fitAll); }
+  })();
+
+  // ---- Locations carousel: swipe hint ----
+  (function(){
+    var shell = document.getElementById('locShell');
+    var strip = document.getElementById('locStrip');
+    var hint  = document.getElementById('locHint');
+    if (!shell || !strip || !hint) return;
+
+    // tapping/clicking the arrow advances the strip
+    hint.addEventListener('click', function(){
+      var card = strip.querySelector('.loc-card');
+      var step = card ? (card.offsetWidth + 14) * 2 : 300;
+      if (strip.scrollBy) { strip.scrollBy({left: step, behavior: 'smooth'}); }
+      else { strip.scrollLeft += step; }
+    });
+
+    // retire the hint once the visitor has scrolled the strip themselves
+    var retired = false;
+    strip.addEventListener('scroll', function(){
+      if (retired) return;
+      if (strip.scrollLeft > 24) { retired = true; shell.classList.add('scrolled'); }
+    }, {passive: true});
+
+    // phones: play the left→right sweep when the strip first comes into view
+    var isPhone = window.matchMedia && window.matchMedia('(max-width:640px)').matches;
+    if (isPhone && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { hint.classList.add('swipe'); io.disconnect(); }
+        });
+      }, {threshold: 0.35});
+      io.observe(shell);
+    } else if (isPhone) {
+      hint.classList.add('swipe');
+    }
+  })();
   // ---- Insurance upload toggle ----
   const toggleInsBtn = document.getElementById('toggleInsUpload');
   const insUploadWrap = document.getElementById('insuranceUploadWrap');
