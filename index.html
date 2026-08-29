@@ -64,7 +64,7 @@
     --blue-700:#1585BD; --blue-600:#1C9AD6; --blue-500:#29ABE2; --blue-100:#E4F5FC;
     --green-600:#7AB92E; --green-500:#8DC63F; --green-100:#EEF8DF;
     --ink:#2E2A5E; --paper:#F8FBFD; --white:#FFFFFF; --muted:#494672; --line:#DCEAF5;
-    --gold:#F5B300; --red-100:#FCEAEA; --red-600:#B23A3A; --radius:18px;
+    --gold:#F5B300; --red-100:#FCEAEA; --red-600:#B23A3A; --red-cta:#D42B20; --radius:18px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -216,6 +216,39 @@
   /* the photo tucks into both wordmarks so DENTALINE / foto / DENTISTA read as one block */
   .slide-reception .reception-photo{ position:relative; z-index:1; max-width:640px; margin:-3vw auto; }
   .slide-reception .reception-caption{ margin:12px auto 0; }
+  /* quiet, thumb-sized shortcut straight to the booking form */
+  .quick-book{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    margin:14px auto 0; padding:13px 26px; min-height:48px;
+    border:1.5px solid var(--green-500); border-radius:100px;
+    background:var(--white); color:#4a6821;
+    font-family:'Inter', sans-serif; font-weight:700; font-size:14.5px;
+    transition:background .15s ease, border-color .15s ease;
+  }
+  .quick-book:hover{ background:var(--green-100); border-color:var(--green-600); }
+  .opt-tag{
+    display:inline-block; margin-left:7px; padding:2px 9px; border-radius:100px;
+    background:var(--blue-100); color:var(--blue-700); border:1px solid var(--line);
+    font-size:11px; font-weight:600; letter-spacing:.02em; text-transform:lowercase;
+  }
+  .field-hint{ display:block; margin-top:6px; font-size:12.5px; color:var(--muted); line-height:1.5; }
+  .quick-book .qb-arrow{ font-size:12px; opacity:.75; }
+  @media(max-width:640px){ .quick-book{ padding:14px 24px; font-size:15px; } }
+  /* AGENDAR AQUÍ — one per branch, red-outlined so it reads as the action */
+  .book-here{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:9px 18px; min-height:42px; border-radius:100px;
+    border:2px solid var(--red-cta); background:transparent; color:var(--red-cta);
+    font-family:'Inter', sans-serif; font-weight:800; text-transform:uppercase;
+    font-size:12.5px; letter-spacing:.06em; white-space:nowrap; cursor:pointer;
+    -webkit-appearance:none; appearance:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .book-here:hover{ background:var(--red-cta); color:#fff; }
+  @media(max-width:640px){
+    .compact-row{ align-items:flex-start; }
+    .book-here{ width:100%; margin-top:4px; }
+  }
   @media(min-width:721px){
     .slide-reception .reception-photo{ max-width:860px; margin:-7.4vw auto; }
   }
@@ -340,7 +373,7 @@
   <!-- ============ SLIDE 1: HERO ============ -->
   <section class="slide1" id="inicio">
     <div class="wrap">
-      <a href="#sucursales" class="transporte-banner">
+      <a href="#agendar" class="transporte-banner" data-goto-form data-branch="El Paso">
         <span data-es="TRANSPORTE GRATIS" data-en="FREE TRANSPORT">TRANSPORTE GRATIS</span>
         <span class="arrow">El Paso → Juárez</span>
       </a>
@@ -361,6 +394,7 @@
     </svg>
     <div class="wrap">
       <p class="reception-caption" data-es="Nuestro consultorio, listo para recibirte" data-en="Our clinic, ready to welcome you">Nuestro consultorio, listo para recibirte</p>
+      <a href="#agendar" class="quick-book" data-goto-form data-es="Agendar mi cita gratis" data-en="Book my free appointment">Agendar mi cita gratis</a>
     </div>
   </section>
   <!-- ============ SLIDE 1C: NUESTRAS SUCURSALES ============ -->
@@ -417,34 +451,42 @@
         <div class="compact-row hub">
           <span class="name">🇺🇸→🇲🇽 El Paso</span>
           <span class="details">8080 Gateway East · <span data-es="Punto de salida en Óptica 20-20" data-en="Departure point at Óptica 20-20">Punto de salida en Óptica 20-20</span> · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=8080%20Gateway%20East%2C%20El%20Paso%2C%20TX" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>+52 656 623 1202</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="El Paso" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Aztecas<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
           <span class="details">Calle Pino Suárez 3516, Santa María · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Calle%20Pino%20Su%C3%A1rez%203516%2C%20Santa%20Mar%C3%ADa%2C%2032670%20Ciudad%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–6:00 PM · 656 633 9976</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Aztecas" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Ejército<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
           <span class="details">Av. Ejército Nacional 6220 — <span data-es="frente a María Bonita" data-en="across from María Bonita">frente a María Bonita</span> · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Av.%20Ej%C3%A9rcito%20Nacional%206220%2C%20Partido%20Iglesias%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–6:30 PM · 656 623 1202</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Ejército" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Pasaje<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
           <span class="details">C. 16 de Septiembre 455, Centro · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=C.%2016%20de%20Septiembre%20455%2C%20Centro%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–6:30 PM · 656 251 7235</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Pasaje" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Torres<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
           <span class="details">Plaza Sendero Las Torres, Av. de las Torres #2111 · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Av.%20de%20las%20Torres%202111%2C%20Plaza%20Sendero%20Las%20Torres%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>10:00 AM–7:30 PM · 656 681 2775</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Torres" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Libramiento<span class="tag-opt" data-es="Óptica 20-20" data-en="Óptica 20-20">Óptica 20-20</span></span>
           <span class="details">Mi Plaza Libramiento, Av. Henequén · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Mi%20Plaza%20Libramiento%2C%20Av.%20Henequ%C3%A9n%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>11:00 AM–8:00 PM · 656 654 9367</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Libramiento" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Rio Grande</span>
           <span class="details">Rio Grande Mall · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Av.%20Paseo%20Triunfo%20de%20la%20Rep%C3%BAblica%204450%2C%20Rio%20Grande%20Mall%2C%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>9:30 AM–7:30 PM · 656 251 0496</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Rio Grande" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
         <div class="compact-row">
           <span class="name">📍 Sendero</span>
           <span class="details">Plaza Sendero, Blvd. Francisco Villarreal Torres 2050-A, Local 28C · <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Blvd.%20Francisco%20Villarreal%20Torres%202050-A%2C%20Local%2028C%2C%20Partido%20Senec%C3%BA%2C%2032543%20Ciudad%20Ju%C3%A1rez%2C%20Chihuahua" target="_blank" rel="noopener" data-es="Ver mapa" data-en="View map">Ver mapa</a><br>10:00 AM–7:00 PM · 656 209 0783</span>
+          <a href="#agendar" class="book-here" data-goto-form data-branch="Sendero" data-es="AGENDAR AQUÍ" data-en="BOOK HERE">AGENDAR AQUÍ</a>
         </div>
       </div>
       <div class="subhead" data-es="Servicios" data-en="Services">Servicios</div>
@@ -492,69 +534,48 @@
       <form id="bookingForm" method="POST" target="booking-iframe">
         <input type="hidden" name="_subject" id="bookingSubject" value="Nueva solicitud de cita">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" id="bookingAutoresponse" value="¡Gracias por tu solicitud! La recibimos y te contactaremos pronto para confirmar tu cita.">
-        <div class="field-row">
-          <div class="field"><label data-es="Nombre completo" data-en="Full name">Nombre completo</label><input type="text" id="name" name="Nombre" required></div>
-          <div class="field">
-            <label data-es="Teléfono" data-en="Phone">Teléfono</label>
-            <div class="phone-row">
-              <select id="phoneCountry" aria-label="Código de país">
-                <option value="+52" data-es="🇲🇽 México (+52)" data-en="🇲🇽 Mexico (+52)">🇲🇽 México (+52)</option>
-                <option value="+1" data-es="🇺🇸 Estados Unidos (+1)" data-en="🇺🇸 United States (+1)">🇺🇸 Estados Unidos (+1)</option>
-                <option value="+1" data-es="🇨🇦 Canadá (+1)" data-en="🇨🇦 Canada (+1)">🇨🇦 Canadá (+1)</option>
-                <option value="+57" data-es="🇨🇴 Colombia (+57)" data-en="🇨🇴 Colombia (+57)">🇨🇴 Colombia (+57)</option>
-                <option value="+502" data-es="🇬🇹 Guatemala (+502)" data-en="🇬🇹 Guatemala (+502)">🇬🇹 Guatemala (+502)</option>
-                <option value="+58" data-es="🇻🇪 Venezuela (+58)" data-en="🇻🇪 Venezuela (+58)">🇻🇪 Venezuela (+58)</option>
-              </select>
-              <input type="tel" id="phoneNumber" required pattern="[0-9\-\s()]{7,15}" title="Ingresa un teléfono válido (7 a 15 dígitos)" placeholder="656 123 4567" autocomplete="tel-national">
-            </div>
-            <input type="hidden" id="phone" name="Teléfono">
-          </div>
+        <input type="hidden" name="_autoresponse" id="bookingAutoresponse" value="¡Gracias por tu solicitud! La recibimos y te llamaremos pronto para confirmar tu cita.">
+        <div class="field">
+          <label for="location" data-es="¿Cuál sucursal te queda mejor?" data-en="Which location works best for you?">¿Cuál sucursal te queda mejor?</label>
+          <select id="location" name="Sucursal / Punto de salida" required>
+            <option value="" disabled selected data-es="Elige una opción" data-en="Choose an option">Elige una opción</option>
+            <option value="El Paso" data-es="El Paso (transporte gratis y cruce)" data-en="El Paso (free transport &amp; border crossing)">El Paso (transporte gratis y cruce)</option>
+            <option value="Aztecas">Aztecas</option>
+            <option value="Ejército">Ejército</option>
+            <option value="Pasaje">Pasaje</option>
+            <option value="Torres">Torres</option>
+            <option value="Libramiento">Libramiento</option>
+            <option value="Rio Grande">Rio Grande</option>
+            <option value="Sendero">Sendero</option>
+          </select>
         </div>
         <div class="field">
-          <label data-es="Correo" data-en="Email">Correo</label>
-          <div class="email-row">
-            <input type="text" id="emailLocal" required autocomplete="off" inputmode="email" placeholder="tunombre" pattern="[a-zA-Z0-9._%+\-]+" title="Solo la parte antes de la @, sin espacios">
-            <span class="email-at">@</span>
-            <select id="emailDomain">
-              <option value="gmail.com" selected>gmail.com</option>
-              <option value="hotmail.com">hotmail.com</option>
-              <option value="outlook.com">outlook.com</option>
-              <option value="yahoo.com">yahoo.com</option>
-              <option value="icloud.com">icloud.com</option>
-              <option value="live.com">live.com</option>
-              <option value="otro" data-es="Otro…" data-en="Other…">Otro…</option>
-            </select>
-          </div>
-          <input type="text" id="emailDomainCustom" style="display:none;margin-top:6px;" placeholder="tudominio.com">
-          <input type="hidden" id="email" name="email">
+          <label for="name" data-es="Tu nombre" data-en="Your name">Tu nombre</label>
+          <input type="text" id="name" name="Nombre" required autocomplete="name">
         </div>
-        <div class="field-row">
-          <div class="field">
-            <label data-es="Sucursal / Punto de salida" data-en="Location / Departure point">Sucursal / Punto de salida</label>
-            <select id="location" name="Sucursal / Punto de salida" required>
-              <option value="" disabled selected data-es="Elige una opción" data-en="Choose an option">Elige una opción</option>
-              <option value="El Paso" data-es="El Paso (punto de salida y cruce)" data-en="El Paso (departure point &amp; border crossing)">El Paso (punto de salida y cruce)</option>
-              <option value="Aztecas">Aztecas</option>
-              <option value="Ejército">Ejército</option>
-              <option value="Pasaje">Pasaje</option>
-              <option value="Torres">Torres</option>
-              <option value="Libramiento">Libramiento</option>
-              <option value="Rio Grande">Rio Grande</option>
-              <option value="Sendero">Sendero</option>
+        <div class="field">
+          <label for="phoneNumber" data-es="Tu teléfono" data-en="Your phone">Tu teléfono</label>
+          <div class="phone-row">
+            <select id="phoneCountry" aria-label="Código de país">
+              <option value="+52" data-es="🇲🇽 México (+52)" data-en="🇲🇽 Mexico (+52)">🇲🇽 México (+52)</option>
+              <option value="+1" data-es="🇺🇸 Estados Unidos (+1)" data-en="🇺🇸 United States (+1)">🇺🇸 Estados Unidos (+1)</option>
+              <option value="+1" data-es="🇨🇦 Canadá (+1)" data-en="🇨🇦 Canada (+1)">🇨🇦 Canadá (+1)</option>
+              <option value="+57" data-es="🇨🇴 Colombia (+57)" data-en="🇨🇴 Colombia (+57)">🇨🇴 Colombia (+57)</option>
+              <option value="+502" data-es="🇬🇹 Guatemala (+502)" data-en="🇬🇹 Guatemala (+502)">🇬🇹 Guatemala (+502)</option>
+              <option value="+58" data-es="🇻🇪 Venezuela (+58)" data-en="🇻🇪 Venezuela (+58)">🇻🇪 Venezuela (+58)</option>
             </select>
+            <input type="tel" id="phoneNumber" required pattern="[0-9\-\s()]{7,15}" title="Ingresa un teléfono válido (7 a 15 dígitos)" placeholder="656 123 4567" autocomplete="tel-national">
           </div>
-          <div class="field">
-            <label data-es="Servicio" data-en="Service">Servicio</label>
-            <select id="service" name="Servicio" required>
-              <option value="" disabled selected data-es="Elige un servicio" data-en="Choose a service">Elige un servicio</option>
-              <option data-es="Consulta" data-en="Consultation">Consulta</option><option data-es="Limpieza" data-en="Cleaning">Limpieza</option>
-              <option data-es="Implantes" data-en="Implants">Implantes</option><option data-es="Blanqueamiento" data-en="Whitening">Blanqueamiento</option><option data-es="Extracciones" data-en="Extractions">Extracciones</option>
-              <option data-es="Ortodoncia" data-en="Orthodontics">Ortodoncia</option><option data-es="Radiografías" data-en="X-rays">Radiografías</option>
-            </select>
-          </div>
+          <input type="hidden" id="phone" name="Teléfono">
         </div>
-        <div class="field"><label data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label><input type="date" id="date" name="Fecha preferida"></div>
+        <div class="field">
+          <label for="email">
+            <span data-es="Tu correo" data-en="Your email">Tu correo</span>
+            <span class="opt-tag" data-es="opcional" data-en="optional">opcional</span>
+          </label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="tunombre@gmail.com">
+          <span class="field-hint" data-es="Por si no logramos localizarte por teléfono. Te mandamos tu acuse aquí." data-en="In case we can't reach you by phone. We'll send your confirmation here.">Por si no logramos localizarte por teléfono. Te mandamos tu acuse aquí.</span>
+        </div>
         <input type="text" id="booking-honey" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn btn-green" id="submitBtn" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
         <div id="formStatus" class="form-status" role="status"></div>
@@ -638,6 +659,40 @@
     else { window.addEventListener('load', fitAll); }
   })();
 
+  // ---- Every "agendar" shortcut lands on the form, branch already chosen ----
+  // Jumps instantly instead of gliding: the form sits far down the page and a
+  // long smooth scroll feels like a trip. If the link carries data-branch, that
+  // branch is pre-selected so the visitor has one less decision to make.
+  (function(){
+    var links = document.querySelectorAll('[data-goto-form]');
+    if (!links.length) return;
+    var target = document.getElementById('agendar');
+    if (!target) return;
+    function jump(branch){
+      if (branch) {
+        var sel = document.getElementById('location');
+        if (sel) {
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === branch) { sel.selectedIndex = i; break; }
+          }
+        }
+      }
+      var header = document.querySelector('header');
+      var offset = header ? header.getBoundingClientRect().height + 12 : 12;
+      var y = target.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - offset;
+      if (window.scrollTo) {
+        try { window.scrollTo({top: y, behavior: 'auto'}); }
+        catch (e) { window.scrollTo(0, y); }
+      }
+    }
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function(e){
+        e.preventDefault();
+        jump(this.getAttribute('data-branch'));
+      });
+    }
+  })();
+
   // ---- Locations carousel: swipe hint ----
   (function(){
     var shell = document.getElementById('locShell');
@@ -701,28 +756,12 @@
   phoneCountry.addEventListener('change', syncPhone);
   phoneNumber.addEventListener('input', syncPhone);
 
-  const emailLocal = document.getElementById('emailLocal');
-  const emailDomain = document.getElementById('emailDomain');
-  const emailDomainCustom = document.getElementById('emailDomainCustom');
-  const emailHidden = document.getElementById('email');
-  function syncEmail(){
-    const local = emailLocal.value.trim();
-    const domain = emailDomain.value === 'otro' ? emailDomainCustom.value.trim() : emailDomain.value;
-    emailHidden.value = (local && domain) ? `${local}@${domain}` : '';
-  }
-  emailDomain.addEventListener('change', () => {
-    emailDomainCustom.style.display = emailDomain.value === 'otro' ? 'block' : 'none';
-    if (emailDomain.value === 'otro') emailDomainCustom.focus();
-    syncEmail();
-  });
-  emailLocal.addEventListener('input', syncEmail);
-  emailDomainCustom.addEventListener('input', syncEmail);
-
-  // Native (non-AJAX) multipart POST, submitted into a hidden iframe — same
-  // pattern as the insurance form below. Required for FormSubmit's
-  // "_autoresponse" feature (an automatic confirmation email back to the
-  // person who submitted) to work at all; it does not fire on AJAX/fetch
-  // submissions. The hidden iframe means the visitor never leaves the page.
+  // Native (non-AJAX) POST submitted into a hidden iframe, so the visitor never
+  // leaves the page. The form asks for branch, name and phone (required) plus
+  // email (optional) — every required field costs completed requests, so email
+  // stays optional as a fallback channel. FormSubmit's "_autoresponse" needs
+  // the email field to fire; when it is left blank it simply does not send,
+  // and the request still reaches the branch either way.
   const form = document.getElementById('bookingForm');
   const statusEl = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
@@ -730,35 +769,29 @@
   const bookingAutoresponse = document.getElementById('bookingAutoresponse');
   form.addEventListener('submit', (e) => {
     syncPhone();
-    syncEmail();
-    if (emailDomain.value === 'otro' && !emailDomainCustom.value.trim()) {
-      e.preventDefault();
-      statusEl.className = 'form-status err';
-      statusEl.textContent = 'Escribe el dominio de tu correo (ej. tudominio.com).';
-      emailDomainCustom.focus();
-      return;
-    }
     const location = document.getElementById('location').value;
     const targetEmail = BRANCH_EMAILS[location];
     if (!targetEmail) {
       e.preventDefault();
       statusEl.className = 'form-status err';
-      statusEl.textContent = 'Elige una sucursal antes de enviar.';
+      statusEl.textContent = currentLang === 'en'
+        ? 'Choose a location before sending.'
+        : 'Elige una sucursal antes de enviar.';
       return;
     }
     form.action = `https://formsubmit.co/${encodeURIComponent(targetEmail)}`;
     bookingSubject.value = `Nueva solicitud — ${location}`;
     bookingAutoresponse.value = currentLang === 'en'
-      ? "Thanks for your request! We've received it and will contact you soon to confirm your appointment. Questions? Call 656 419 6281 or message us on WhatsApp."
-      : "¡Gracias por tu solicitud! La recibimos y te contactaremos pronto para confirmar tu cita. ¿Dudas? Llámanos al 656 419 6281 o escríbenos por WhatsApp.";
-    // No preventDefault here — the form submits natively into the hidden
-    // iframe below rather than navigating the visible page.
+      ? "Thanks for your request! We've received it and will call you soon to confirm your appointment."
+      : "¡Gracias por tu solicitud! La recibimos y te llamaremos pronto para confirmar tu cita.";
     submitBtn.disabled = true;
     statusEl.className = 'form-status sending';
-    statusEl.textContent = 'Enviando tu solicitud…';
+    statusEl.textContent = currentLang === 'en' ? 'Sending your request…' : 'Enviando tu solicitud…';
     setTimeout(() => {
       statusEl.className = 'form-status ok';
-      statusEl.textContent = '¡Listo! Tu solicitud fue enviada. Te contactaremos pronto.';
+      statusEl.textContent = currentLang === 'en'
+        ? "All set! Your request was sent. We'll contact you soon."
+        : '¡Listo! Tu solicitud fue enviada. Te contactaremos pronto.';
       form.reset();
       submitBtn.disabled = false;
     }, 2200);
