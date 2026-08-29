@@ -80,7 +80,7 @@
   /* ---------- Header ---------- */
   header{ position:sticky; top:0; z-index:50; background:rgba(248,251,253,0.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
   .nav{display:flex; align-items:center; padding:14px 0; gap:14px;}
-  .nav-left{display:flex; align-items:center; gap:8px;}
+  .nav-cta{display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; margin-left:auto;}
   .nav-logo{flex:0 1 auto;}
   .nav-logo img{height:92px; width:auto; display:block;}
   @media(max-width:640px){ .nav-logo img{height:60px;} }
@@ -99,11 +99,10 @@
     transition:background .15s ease;
   }
   .nav-if-btn:hover{background:var(--blue-700);}
-  .nav-cta{margin-left:auto;}
   .nav-cta-btn{white-space:nowrap; padding:19px 40px; font-size:18px; letter-spacing:.04em;}
   @media(max-width:640px){
     .nav{gap:8px;}
-    .nav-left{gap:6px;}
+    .nav-cta{gap:8px;}
     .lang-toggle{display:none;}          /* moves to the floating button on phones */
     .nav-if-btn{padding:8px 13px; font-size:12.5px;}
     .nav-cta-btn{padding:13px 20px; font-size:14px;}
@@ -326,16 +325,14 @@
 <body id="top">
 <header>
   <div class="wrap nav">
-    <div class="nav-left">
-      <a href="#top" class="nav-logo" aria-label="Dentaline — ir al inicio"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo-fallback.png" alt="Dentaline" width="1400" height="649"></picture></a>
+    <a href="#top" class="nav-logo" aria-label="Dentaline — ir al inicio"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo-fallback.png" alt="Dentaline" width="1400" height="649"></picture></a>
+    <div class="nav-cta">
       <a href="faq.html" class="nav-if-btn" data-es="IF" data-en="IF" aria-label="Informes">IF</a>
+      <a href="#agendar" class="btn btn-green nav-cta-btn" data-es="AGENDAR CITA" data-en="BOOK NOW">AGENDAR CITA</a>
       <div class="lang-toggle">
         <button data-lang-btn="es" class="active">ES</button>
         <button data-lang-btn="en">EN</button>
       </div>
-    </div>
-    <div class="nav-cta">
-      <a href="#agendar" class="btn btn-green nav-cta-btn" data-es="AGENDAR CITA" data-en="BOOK NOW">AGENDAR CITA</a>
     </div>
   </div>
 </header>
