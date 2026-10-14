@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dentaline — WhatsApp</title>
+<style>
+  body{font-family:system-ui,-apple-system,sans-serif;background:#fff;color:#1d2b3a;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:16px;text-align:center}
+  a{display:inline-block;margin-top:14px;background:#25D366;color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:600}
+</style>
+<script>
+/* =====================================================================
+   TABLA DE SUCURSALES — lo ÚNICO que se edita cuando una sucursal
+   estrena su propio WhatsApp. Cambia el número (52 + 10 dígitos).
+   Mientras una sucursal no tenga número propio, usa la central.
+   ===================================================================== */
+var CENTRAL = "5216572255055";               // 657 225 5055 (central actual)
+var SUCURSALES = {
+  ejercito:    { nombre: "Ejército",     tel: "526566231202" }, // 656 623 1202  ✅ propio
+  aztecas:     { nombre: "Aztecas",      tel: CENTRAL },
+  pasaje:      { nombre: "Pasaje",       tel: CENTRAL },
+  torres:      { nombre: "Torres",       tel: CENTRAL },
+  libramiento: { nombre: "Libramiento",  tel: CENTRAL },
+  riogrande:   { nombre: "Rio Grande",   tel: CENTRAL },
+  sendero:     { nombre: "Sendero",      tel: CENTRAL },
+  elpaso:      { nombre: "Ejército",     tel: "526566231202" }  // pacientes de El Paso → Ejército por ahora
+};
+/* Origen del paciente (?o=) → etiqueta que verá recepción al final del mensaje */
+var ORIGENES = { qr:"QR", google:"GOOGLE", web:"WEB", fb:"FB", ep:"EP" };
+/* ===================================================================== */
+
+(function () {
+  var p = new URLSearchParams(location.search);
+  var s = SUCURSALES[(p.get("s") || "").toLowerCase()];
+  var ref = ORIGENES[(p.get("o") || "").toLowerCase()];
+  var tel = s ? s.tel : CENTRAL;
+  var msg = "¡Hola! Me gustaría agendar mi valoración gratis" +
+            (s ? " en Dentaline " + s.nombre : "") + " 😊" +
+            (ref ? " (Ref: " + ref + ")" : "");
+  var url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
+  window.__waURL = url;
+  location.replace(url);
+})();
+</script>
+</head>
+<body>
+  <div>
+    <p>Abriendo WhatsApp de Dentaline…</p>
+    <a id="btn" href="https://wa.me/5216572255055">Abrir WhatsApp</a>
+  </div>
+  <script>if (window.__waURL) document.getElementById("btn").href = window.__waURL;</script>
+</body>
+</html>
