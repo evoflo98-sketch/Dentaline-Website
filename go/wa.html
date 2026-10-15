@@ -35,7 +35,7 @@ var ORIGENES = { qr:"QR", google:"GOOGLE", web:"WEB", fb:"FB", ep:"EP" };
   var s = SUCURSALES[(p.get("s") || "").toLowerCase()];
   var ref = ORIGENES[(p.get("o") || "").toLowerCase()];
   var tel = s ? s.tel : CENTRAL;
-  var msg = "¡Hola! Me gustaría agendar mi valoración gratis" +
+  var msg = "¡Hola! Me gustaría agendar mi consulta gratis" +
             (s ? " en Dentaline " + s.nombre : "") + " 😊" +
             (ref ? " (Ref: " + ref + ")" : "");
   var url = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
